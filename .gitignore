@@ -3,3 +3,13 @@
 ################################################################################
 
 /KMS.Retail.Mini/KMS.Retail.Application/obj/Debug
+/KMS.Retail.Mini/KMS.Retail.Common/bin/Debug
+/KMS.Retail.Mini/KMS.Retail.Common/obj/Debug
+/KMS.Retail.Mini/KMS.Retail.Master/bin/Debug
+/KMS.Retail.Mini/KMS.Retail.Master/obj/Debug
+/KMS.Retail.Mini/KMS.Retail.Model/bin/Debug
+/KMS.Retail.Mini/KMS.Retail.Model/obj/Debug
+/KMS.Retail.Mini/packages
+/.vs/KMS_REPO/v15
+/KMS.Retail.Mini/.vs/KMS.Retail.Mini/v15
+/.vs
