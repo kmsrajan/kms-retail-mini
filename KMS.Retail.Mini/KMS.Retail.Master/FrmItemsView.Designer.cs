@@ -100,6 +100,7 @@
             this.btnView.TabIndex = 12;
             this.btnView.Text = "பொருள் விவரம்";
             this.btnView.UseVisualStyleBackColor = false;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnUpdate
             // 
@@ -111,6 +112,7 @@
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "திருத்தம் செய் ";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnNew
             // 
@@ -164,8 +166,11 @@
             this.dgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgItems.Location = new System.Drawing.Point(3, 51);
             this.dgItems.Name = "dgItems";
+            this.dgItems.ReadOnly = true;
+            this.dgItems.RowTemplate.Height = 25;
             this.dgItems.Size = new System.Drawing.Size(1049, 458);
             this.dgItems.TabIndex = 7;
+            this.dgItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgItems_CellClick);
             // 
             // rbAll
             // 
@@ -239,6 +244,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "FrmItemsView";
             this.Text = "FrmItemsView";
+            this.Load += new System.EventHandler(this.FrmItemsView_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.panel2.ResumeLayout(false);

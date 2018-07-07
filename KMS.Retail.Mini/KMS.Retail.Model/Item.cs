@@ -14,15 +14,17 @@ namespace KMS.Retail.Model
         public string ShortName { get; set; }
         public string DisplayName { get; set; }
         public string Category { get; set; }
-        public string Picture { get; set; }
-        public string PurchasePrice { get; set; }
-        public string Qty { get; set; }
-        public string SellingPrice { get; set; }
-        public string WSPrice { get; set; }
-        public string GCPrice { get; set; }
-        public string MRP { get; set; }
-        public string GST { get; set; }
-        public string Tax { get; set; }
+        public byte[] Picture { get; set; }
+        public decimal PurchasePrice { get; set; }
+        public int Qty { get; set; }
+        public decimal SellingPrice { get; set; }
+        public decimal WSPrice { get; set; }
+        public decimal SplPrice { get; set; }
+        public decimal MRP { get; set; }
+        public decimal GST { get; set; }
+        public decimal Tax { get; set; }
         public string Status { get; set; }
+
+        public string DateCreated { get; set; }
     }
 }

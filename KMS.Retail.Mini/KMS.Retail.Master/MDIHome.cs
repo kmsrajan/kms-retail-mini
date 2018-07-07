@@ -161,5 +161,12 @@ namespace KMS.Retail.Master
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             //Screen.PrimaryScreen.WorkingArea;
         }
+
+        private void menuNewItem_Click(object sender, EventArgs e)
+        {
+            FrmItem frmItem = new FrmItem();
+            frmItem.StartPosition = FormStartPosition.CenterParent;
+            frmItem.ShowDialog();
+        }
     }
 }

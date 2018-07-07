@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

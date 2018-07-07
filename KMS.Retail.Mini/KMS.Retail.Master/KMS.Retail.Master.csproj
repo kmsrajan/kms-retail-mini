@@ -165,11 +165,17 @@
       <Name>KMS.Retail.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Icons\Done.ico" />
     <Content Include="Icons\KMs.ico" />
+    <Content Include="Images\Blank.PNG" />
+    <Content Include="Images\calcissue.PNG" />
+    <Content Include="Images\Capture.PNG" />
+    <Content Include="Images\Cash.PNG" />
+    <Content Include="Images\Done.PNG" />
+    <Content Include="Images\duplicate.PNG" />
+    <Content Include="Images\Stop.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

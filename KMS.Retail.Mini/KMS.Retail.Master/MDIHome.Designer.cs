@@ -42,6 +42,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.menuNewItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,8 @@
             this.menuNewOrder,
             this.menuItemDetails,
             this.menuInvoiceDetails,
-            this.menuHelp});
+            this.menuHelp,
+            this.menuNewItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1312, 29);
@@ -63,6 +65,7 @@
             // menuNewOrder
             // 
             this.menuNewOrder.Name = "menuNewOrder";
+            this.menuNewOrder.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.menuNewOrder.Size = new System.Drawing.Size(126, 25);
             this.menuNewOrder.Text = "புதிய ரசீது";
             this.menuNewOrder.Click += new System.EventHandler(this.menuNewOrder_Click);
@@ -70,6 +73,7 @@
             // menuItemDetails
             // 
             this.menuItemDetails.Name = "menuItemDetails";
+            this.menuItemDetails.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.menuItemDetails.Size = new System.Drawing.Size(212, 25);
             this.menuItemDetails.Text = "பொருட்கள் விவரம்";
             this.menuItemDetails.Click += new System.EventHandler(this.menuItemDetails_Click);
@@ -77,6 +81,7 @@
             // menuInvoiceDetails
             // 
             this.menuInvoiceDetails.Name = "menuInvoiceDetails";
+            this.menuInvoiceDetails.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.menuInvoiceDetails.Size = new System.Drawing.Size(198, 25);
             this.menuInvoiceDetails.Text = "விற்பனை விவரம்";
             this.menuInvoiceDetails.Click += new System.EventHandler(this.menuInvoiceDetails_Click);
@@ -89,6 +94,7 @@
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem});
             this.menuHelp.Name = "menuHelp";
+            this.menuHelp.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.menuHelp.Size = new System.Drawing.Size(82, 25);
             this.menuHelp.Text = "உதவி";
             // 
@@ -135,6 +141,15 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // menuNewItem
+            // 
+            this.menuNewItem.Name = "menuNewItem";
+            this.menuNewItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.menuNewItem.Size = new System.Drawing.Size(85, 25);
+            this.menuNewItem.Text = "NewItem";
+            this.menuNewItem.Visible = false;
+            this.menuNewItem.Click += new System.EventHandler(this.menuNewItem_Click);
+            // 
             // MDIHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +185,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemDetails;
         private System.Windows.Forms.ToolStripMenuItem menuInvoiceDetails;
         private System.Windows.Forms.ToolStripMenuItem menuNewOrder;
+        private System.Windows.Forms.ToolStripMenuItem menuNewItem;
     }
 }
 

@@ -32,14 +32,24 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbMRP = new System.Windows.Forms.PictureBox();
+            this.pbSplPrice = new System.Windows.Forms.PictureBox();
+            this.pbWSPrice = new System.Windows.Forms.PictureBox();
+            this.pbSellingPrice = new System.Windows.Forms.PictureBox();
+            this.pbQty = new System.Windows.Forms.PictureBox();
+            this.pbPurPrice = new System.Windows.Forms.PictureBox();
+            this.pbDisplayName = new System.Windows.Forms.PictureBox();
+            this.pbName = new System.Windows.Forms.PictureBox();
+            this.pbShortName = new System.Windows.Forms.PictureBox();
+            this.pbCode = new System.Windows.Forms.PictureBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.btnPicture = new System.Windows.Forms.Button();
             this.cmbItemStatus = new System.Windows.Forms.ComboBox();
             this.picItemImage = new System.Windows.Forms.PictureBox();
             this.txtCreatedDate = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.txtTax = new System.Windows.Forms.Label();
+            this.txtTax = new System.Windows.Forms.TextBox();
+            this.lblTax = new System.Windows.Forms.Label();
             this.txtGST = new System.Windows.Forms.TextBox();
             this.lblGST = new System.Windows.Forms.Label();
             this.lblItemStatus = new System.Windows.Forms.Label();
@@ -69,9 +79,20 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.fdImageBrowse = new System.Windows.Forms.OpenFileDialog();
             btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMRP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSplPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWSPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSellingPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPurPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDisplayName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShortName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItemImage)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +113,7 @@
             this.panel1.Controls.Add(this.label15);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 53);
+            this.panel1.Size = new System.Drawing.Size(604, 53);
             this.panel1.TabIndex = 0;
             // 
             // label15
@@ -107,14 +128,24 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pbMRP);
+            this.panel2.Controls.Add(this.pbSplPrice);
+            this.panel2.Controls.Add(this.pbWSPrice);
+            this.panel2.Controls.Add(this.pbSellingPrice);
+            this.panel2.Controls.Add(this.pbQty);
+            this.panel2.Controls.Add(this.pbPurPrice);
+            this.panel2.Controls.Add(this.pbDisplayName);
+            this.panel2.Controls.Add(this.pbName);
+            this.panel2.Controls.Add(this.pbShortName);
+            this.panel2.Controls.Add(this.pbCode);
             this.panel2.Controls.Add(this.cmbCategory);
             this.panel2.Controls.Add(this.lblCategory);
             this.panel2.Controls.Add(this.btnPicture);
             this.panel2.Controls.Add(this.cmbItemStatus);
             this.panel2.Controls.Add(this.picItemImage);
             this.panel2.Controls.Add(this.txtCreatedDate);
-            this.panel2.Controls.Add(this.textBox14);
             this.panel2.Controls.Add(this.txtTax);
+            this.panel2.Controls.Add(this.lblTax);
             this.panel2.Controls.Add(this.txtGST);
             this.panel2.Controls.Add(this.lblGST);
             this.panel2.Controls.Add(this.lblItemStatus);
@@ -142,8 +173,88 @@
             this.panel2.Controls.Add(this.lblItemID);
             this.panel2.Location = new System.Drawing.Point(2, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(575, 506);
+            this.panel2.Size = new System.Drawing.Size(604, 506);
             this.panel2.TabIndex = 1;
+            // 
+            // pbMRP
+            // 
+            this.pbMRP.Location = new System.Drawing.Point(382, 361);
+            this.pbMRP.Name = "pbMRP";
+            this.pbMRP.Size = new System.Drawing.Size(25, 25);
+            this.pbMRP.TabIndex = 80;
+            this.pbMRP.TabStop = false;
+            // 
+            // pbSplPrice
+            // 
+            this.pbSplPrice.Location = new System.Drawing.Point(382, 326);
+            this.pbSplPrice.Name = "pbSplPrice";
+            this.pbSplPrice.Size = new System.Drawing.Size(25, 25);
+            this.pbSplPrice.TabIndex = 79;
+            this.pbSplPrice.TabStop = false;
+            // 
+            // pbWSPrice
+            // 
+            this.pbWSPrice.Location = new System.Drawing.Point(382, 290);
+            this.pbWSPrice.Name = "pbWSPrice";
+            this.pbWSPrice.Size = new System.Drawing.Size(25, 25);
+            this.pbWSPrice.TabIndex = 78;
+            this.pbWSPrice.TabStop = false;
+            // 
+            // pbSellingPrice
+            // 
+            this.pbSellingPrice.Location = new System.Drawing.Point(382, 256);
+            this.pbSellingPrice.Name = "pbSellingPrice";
+            this.pbSellingPrice.Size = new System.Drawing.Size(25, 25);
+            this.pbSellingPrice.TabIndex = 77;
+            this.pbSellingPrice.TabStop = false;
+            // 
+            // pbQty
+            // 
+            this.pbQty.Location = new System.Drawing.Point(382, 221);
+            this.pbQty.Name = "pbQty";
+            this.pbQty.Size = new System.Drawing.Size(25, 25);
+            this.pbQty.TabIndex = 76;
+            this.pbQty.TabStop = false;
+            // 
+            // pbPurPrice
+            // 
+            this.pbPurPrice.Location = new System.Drawing.Point(382, 186);
+            this.pbPurPrice.Name = "pbPurPrice";
+            this.pbPurPrice.Size = new System.Drawing.Size(25, 25);
+            this.pbPurPrice.TabIndex = 75;
+            this.pbPurPrice.TabStop = false;
+            // 
+            // pbDisplayName
+            // 
+            this.pbDisplayName.Location = new System.Drawing.Point(569, 147);
+            this.pbDisplayName.Name = "pbDisplayName";
+            this.pbDisplayName.Size = new System.Drawing.Size(25, 25);
+            this.pbDisplayName.TabIndex = 74;
+            this.pbDisplayName.TabStop = false;
+            // 
+            // pbName
+            // 
+            this.pbName.Location = new System.Drawing.Point(569, 113);
+            this.pbName.Name = "pbName";
+            this.pbName.Size = new System.Drawing.Size(25, 25);
+            this.pbName.TabIndex = 73;
+            this.pbName.TabStop = false;
+            // 
+            // pbShortName
+            // 
+            this.pbShortName.Location = new System.Drawing.Point(569, 78);
+            this.pbShortName.Name = "pbShortName";
+            this.pbShortName.Size = new System.Drawing.Size(25, 25);
+            this.pbShortName.TabIndex = 72;
+            this.pbShortName.TabStop = false;
+            // 
+            // pbCode
+            // 
+            this.pbCode.Location = new System.Drawing.Point(569, 43);
+            this.pbCode.Name = "pbCode";
+            this.pbCode.Size = new System.Drawing.Size(25, 25);
+            this.pbCode.TabIndex = 71;
+            this.pbCode.TabStop = false;
             // 
             // cmbCategory
             // 
@@ -167,12 +278,13 @@
             // btnPicture
             // 
             this.btnPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPicture.Location = new System.Drawing.Point(382, 348);
+            this.btnPicture.Location = new System.Drawing.Point(411, 348);
             this.btnPicture.Name = "btnPicture";
             this.btnPicture.Size = new System.Drawing.Size(182, 34);
             this.btnPicture.TabIndex = 68;
             this.btnPicture.Text = "பொருள் படம்";
             this.btnPicture.UseVisualStyleBackColor = true;
+            this.btnPicture.Click += new System.EventHandler(this.btnPicture_Click);
             // 
             // cmbItemStatus
             // 
@@ -186,9 +298,9 @@
             // picItemImage
             // 
             this.picItemImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picItemImage.Location = new System.Drawing.Point(382, 182);
+            this.picItemImage.Location = new System.Drawing.Point(415, 182);
             this.picItemImage.Name = "picItemImage";
-            this.picItemImage.Size = new System.Drawing.Size(182, 160);
+            this.picItemImage.Size = new System.Drawing.Size(178, 160);
             this.picItemImage.TabIndex = 65;
             this.picItemImage.TabStop = false;
             // 
@@ -201,23 +313,23 @@
             this.txtCreatedDate.Size = new System.Drawing.Size(182, 29);
             this.txtCreatedDate.TabIndex = 64;
             // 
-            // textBox14
-            // 
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(424, 395);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(140, 29);
-            this.textBox14.TabIndex = 63;
-            // 
             // txtTax
             // 
-            this.txtTax.AutoSize = true;
-            this.txtTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTax.Location = new System.Drawing.Point(384, 401);
+            this.txtTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTax.Location = new System.Drawing.Point(424, 395);
             this.txtTax.Name = "txtTax";
-            this.txtTax.Size = new System.Drawing.Size(34, 20);
-            this.txtTax.TabIndex = 62;
-            this.txtTax.Text = "Tax";
+            this.txtTax.Size = new System.Drawing.Size(140, 29);
+            this.txtTax.TabIndex = 63;
+            // 
+            // lblTax
+            // 
+            this.lblTax.AutoSize = true;
+            this.lblTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTax.Location = new System.Drawing.Point(384, 401);
+            this.lblTax.Name = "lblTax";
+            this.lblTax.Size = new System.Drawing.Size(34, 20);
+            this.lblTax.TabIndex = 62;
+            this.lblTax.Text = "Tax";
             // 
             // txtGST
             // 
@@ -254,6 +366,7 @@
             this.txtMRP.Name = "txtMRP";
             this.txtMRP.Size = new System.Drawing.Size(166, 29);
             this.txtMRP.TabIndex = 58;
+            this.txtMRP.Leave += new System.EventHandler(this.txtMRP_Leave);
             // 
             // lblMRP
             // 
@@ -272,6 +385,7 @@
             this.txtSplPrice.Name = "txtSplPrice";
             this.txtSplPrice.Size = new System.Drawing.Size(166, 29);
             this.txtSplPrice.TabIndex = 55;
+            this.txtSplPrice.Leave += new System.EventHandler(this.txtSplPrice_Leave);
             // 
             // lblSplPrice
             // 
@@ -290,6 +404,7 @@
             this.txtWSPrice.Name = "txtWSPrice";
             this.txtWSPrice.Size = new System.Drawing.Size(166, 29);
             this.txtWSPrice.TabIndex = 53;
+            this.txtWSPrice.Leave += new System.EventHandler(this.txtWSPrice_Leave);
             // 
             // lblWSPrice
             // 
@@ -308,6 +423,7 @@
             this.txtSellingPrice.Name = "txtSellingPrice";
             this.txtSellingPrice.Size = new System.Drawing.Size(166, 29);
             this.txtSellingPrice.TabIndex = 51;
+            this.txtSellingPrice.Leave += new System.EventHandler(this.txtSellingPrice_Leave);
             // 
             // lclSellingPrice
             // 
@@ -326,6 +442,7 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(166, 29);
             this.txtQty.TabIndex = 49;
+            this.txtQty.Leave += new System.EventHandler(this.txtQty_Leave);
             // 
             // lblQty
             // 
@@ -344,6 +461,7 @@
             this.txtPurchasePrice.Name = "txtPurchasePrice";
             this.txtPurchasePrice.Size = new System.Drawing.Size(166, 29);
             this.txtPurchasePrice.TabIndex = 47;
+            this.txtPurchasePrice.Leave += new System.EventHandler(this.txtPurchasePrice_Leave);
             // 
             // lblPurchasePrice
             // 
@@ -362,6 +480,7 @@
             this.txtItemDispName.Name = "txtItemDispName";
             this.txtItemDispName.Size = new System.Drawing.Size(354, 29);
             this.txtItemDispName.TabIndex = 45;
+            this.txtItemDispName.Leave += new System.EventHandler(this.txtItemDispName_Leave);
             // 
             // lblItemDispName
             // 
@@ -380,6 +499,7 @@
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(354, 29);
             this.txtItemName.TabIndex = 43;
+            this.txtItemName.Leave += new System.EventHandler(this.txtItemName_Leave);
             // 
             // lblItemName
             // 
@@ -398,6 +518,7 @@
             this.txtItemShortName.Name = "txtItemShortName";
             this.txtItemShortName.Size = new System.Drawing.Size(354, 29);
             this.txtItemShortName.TabIndex = 41;
+            this.txtItemShortName.Leave += new System.EventHandler(this.txtItemShortName_Leave);
             // 
             // lblItemShortName
             // 
@@ -416,6 +537,7 @@
             this.txtItemCode.Name = "txtItemCode";
             this.txtItemCode.Size = new System.Drawing.Size(354, 29);
             this.txtItemCode.TabIndex = 39;
+            this.txtItemCode.Leave += new System.EventHandler(this.txtItemCode_Leave);
             // 
             // lblItemCode
             // 
@@ -432,6 +554,7 @@
             this.txtItemId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemId.Location = new System.Drawing.Point(210, 7);
             this.txtItemId.Name = "txtItemId";
+            this.txtItemId.ReadOnly = true;
             this.txtItemId.Size = new System.Drawing.Size(166, 29);
             this.txtItemId.TabIndex = 37;
             // 
@@ -453,7 +576,7 @@
             this.panel3.Controls.Add(this.btnSave);
             this.panel3.Location = new System.Drawing.Point(2, 563);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(575, 50);
+            this.panel3.Size = new System.Drawing.Size(604, 50);
             this.panel3.TabIndex = 1;
             // 
             // btnEdit
@@ -489,11 +612,15 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // fdImageBrowse
+            // 
+            this.fdImageBrowse.FileName = "fdImageBrowse";
+            // 
             // FrmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 614);
+            this.ClientSize = new System.Drawing.Size(607, 614);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -502,10 +629,21 @@
             this.MinimizeBox = false;
             this.Name = "FrmItem";
             this.Text = "FrmItem";
+            this.Load += new System.EventHandler(this.FrmItem_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMRP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSplPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWSPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSellingPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPurPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDisplayName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShortName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItemImage)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -517,8 +655,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtCreatedDate;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label txtTax;
+        private System.Windows.Forms.TextBox txtTax;
+        private System.Windows.Forms.Label lblTax;
         private System.Windows.Forms.TextBox txtGST;
         private System.Windows.Forms.Label lblGST;
         private System.Windows.Forms.Label lblItemStatus;
@@ -554,5 +692,16 @@
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.OpenFileDialog fdImageBrowse;
+        private System.Windows.Forms.PictureBox pbMRP;
+        private System.Windows.Forms.PictureBox pbSplPrice;
+        private System.Windows.Forms.PictureBox pbWSPrice;
+        private System.Windows.Forms.PictureBox pbSellingPrice;
+        private System.Windows.Forms.PictureBox pbQty;
+        private System.Windows.Forms.PictureBox pbPurPrice;
+        private System.Windows.Forms.PictureBox pbDisplayName;
+        private System.Windows.Forms.PictureBox pbName;
+        private System.Windows.Forms.PictureBox pbShortName;
+        private System.Windows.Forms.PictureBox pbCode;
     }
 }
