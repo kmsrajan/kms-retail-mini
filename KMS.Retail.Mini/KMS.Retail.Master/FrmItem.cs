@@ -111,18 +111,22 @@ namespace KMS.Retail.Master
         private void btnSave_Click(object sender, EventArgs e)
         {
             ItemDataModel itmModel = new ItemDataModel();
-            itmModel.AddNewItem(GetItemDetails());
+            itmModel.SaveItem(GetItemDetails());
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             ShowConfirmDialog(Constants.CONST_MSG_001, "Save");
+            ItemDataModel itmModel = new ItemDataModel();
+            itmModel.DeleteItem(GetItemDetails().ID);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ShowConfirmDialog(Constants.CONST_MSG_001, "Save");
+            FrmItemsView activateForm = FrmItemsView.FrmInstance; activateForm.Activate();
             this.Close();
+
         }
         public static bool ShowConfirmDialog(string text, string caption)
         {
@@ -151,6 +155,7 @@ namespace KMS.Retail.Master
         private Item GetItemDetails()
         {
             Item item = new Item();
+            item.ID = Global.GetVal(txtItemId.Text);
             item.Code = Global.GetVal(txtItemCode.Text);
             item.Name = Global.GetVal(txtItemName.Text);
             item.DisplayName = Global.GetVal(txtItemDispName.Text);
@@ -171,6 +176,7 @@ namespace KMS.Retail.Master
                 ImageConverter imgCon = new ImageConverter();
                 item.Picture = (byte[])imgCon.ConvertTo(picItemImage.Image, typeof(byte[]));
             }
+
 
             return item;
         }
@@ -435,6 +441,11 @@ namespace KMS.Retail.Master
             }
             pbMRP.Image = Image.FromFile(img);
             pbMRP.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void FrmItem_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           this.DialogResult=DialogResult.OK;
         }
     }
 }

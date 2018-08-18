@@ -143,7 +143,6 @@ namespace KMS.Retail.Master
 
         private void ActivateChildForm(Form activateForm, FormWindowState winState)
         {
-
             if (activateForm.WindowState == FormWindowState.Minimized)
                 activateForm.WindowState = winState;
 

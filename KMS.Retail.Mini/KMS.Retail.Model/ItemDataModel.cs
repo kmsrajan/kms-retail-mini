@@ -23,6 +23,17 @@ namespace KMS.Retail.Model
             _connectionString = Constants.DB_CONN_STRING;
         }
 
+        public void SaveItem(Item item)
+        {
+            if (string.IsNullOrEmpty(item.ID))
+            {
+                AddNewItem(item);
+            }
+            else
+            {
+                UpdateItem(item);
+            }
+        }
         public void AddNewItem(Item item)
         {
             try
@@ -74,7 +85,7 @@ namespace KMS.Retail.Model
                         conn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = Constants.CON_SP_UPDATE_ITEM;
-
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_ID, item.ID);
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_NAME, item.Name);
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_CODE, item.Code);
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_DISP_NAME, item.DisplayName);
@@ -103,7 +114,7 @@ namespace KMS.Retail.Model
                 throw ex;
             }
         }
-        public void DeleteItem(string itemCode)
+        public void DeleteItem(string itemID)
         {
             try
             {
@@ -115,8 +126,8 @@ namespace KMS.Retail.Model
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = Constants.CON_SP_UPDATE_ITEM_STATUS;
 
-                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_CODE, itemCode);
-                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_STATUS_ID, "0");
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_ID, itemID);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_STATUS_ID, "3");
                         cmd.ExecuteNonQuery();
 
                     }

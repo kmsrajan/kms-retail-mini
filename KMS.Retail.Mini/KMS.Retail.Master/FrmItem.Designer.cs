@@ -262,7 +262,7 @@
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(209, 430);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(355, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(384, 28);
             this.cmbCategory.TabIndex = 70;
             // 
             // lblCategory
@@ -278,9 +278,9 @@
             // btnPicture
             // 
             this.btnPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPicture.Location = new System.Drawing.Point(411, 348);
+            this.btnPicture.Location = new System.Drawing.Point(415, 348);
             this.btnPicture.Name = "btnPicture";
-            this.btnPicture.Size = new System.Drawing.Size(182, 34);
+            this.btnPicture.Size = new System.Drawing.Size(178, 34);
             this.btnPicture.TabIndex = 68;
             this.btnPicture.Text = "பொருள் படம்";
             this.btnPicture.UseVisualStyleBackColor = true;
@@ -292,7 +292,7 @@
             this.cmbItemStatus.FormattingEnabled = true;
             this.cmbItemStatus.Location = new System.Drawing.Point(209, 465);
             this.cmbItemStatus.Name = "cmbItemStatus";
-            this.cmbItemStatus.Size = new System.Drawing.Size(355, 28);
+            this.cmbItemStatus.Size = new System.Drawing.Size(384, 28);
             this.cmbItemStatus.TabIndex = 66;
             // 
             // picItemImage
@@ -316,7 +316,7 @@
             // txtTax
             // 
             this.txtTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTax.Location = new System.Drawing.Point(424, 395);
+            this.txtTax.Location = new System.Drawing.Point(453, 395);
             this.txtTax.Name = "txtTax";
             this.txtTax.Size = new System.Drawing.Size(140, 29);
             this.txtTax.TabIndex = 63;
@@ -325,7 +325,7 @@
             // 
             this.lblTax.AutoSize = true;
             this.lblTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTax.Location = new System.Drawing.Point(384, 401);
+            this.lblTax.Location = new System.Drawing.Point(402, 401);
             this.lblTax.Name = "lblTax";
             this.lblTax.Size = new System.Drawing.Size(34, 20);
             this.lblTax.TabIndex = 62;
@@ -629,6 +629,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmItem";
             this.Text = "FrmItem";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmItem_FormClosed);
             this.Load += new System.EventHandler(this.FrmItem_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
