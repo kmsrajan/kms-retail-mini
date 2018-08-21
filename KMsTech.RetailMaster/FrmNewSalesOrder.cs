@@ -10,29 +10,23 @@ using System.Windows.Forms;
 
 namespace KMS.Retail.Master
 {
-    public partial class FrmOrder : Form
+    public partial class FrmNewSalesOrder : Form
     {
-        private static FrmOrder _frmInstance;
-        public static FrmOrder FrmInstance
+        private static FrmNewSalesOrder _frmInstance;
+        public static FrmNewSalesOrder FrmInstance
         {
             get
             {
-                if (FrmOrder._frmInstance == null)
+                if (FrmNewSalesOrder._frmInstance == null)
                 {
-                    FrmOrder._frmInstance = new FrmOrder();
+                    FrmNewSalesOrder._frmInstance = new FrmNewSalesOrder();
                 }
-                return FrmOrder._frmInstance;
+                return FrmNewSalesOrder._frmInstance;
             }
         }
-
-        public FrmOrder()
+        public FrmNewSalesOrder()
         {
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMS.Retail.Common", "KMS.Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMS.Retail.Master", "KMS.Retail.Master\KMS.Retail.Master.csproj", "{6D3FBC2E-FF1D-4418-8CF3-90C89049FBD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMsTech.RetailMaster", "..\KMsTech.RetailMaster\KMsTech.RetailMaster.csproj", "{9B8261EF-4538-4724-888F-A3C76BE6402D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6D3FBC2E-FF1D-4418-8CF3-90C89049FBD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D3FBC2E-FF1D-4418-8CF3-90C89049FBD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D3FBC2E-FF1D-4418-8CF3-90C89049FBD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8261EF-4538-4724-888F-A3C76BE6402D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8261EF-4538-4724-888F-A3C76BE6402D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8261EF-4538-4724-888F-A3C76BE6402D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8261EF-4538-4724-888F-A3C76BE6402D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

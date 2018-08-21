@@ -168,7 +168,7 @@ namespace KMS.Retail.Model
 
             return dt;
         }
-        public bool IsValidItem(string paramName, string itemID,string paramValue)
+        public bool IsValidItem(string spName, string paramName,string paramValue,string itemId)
         {
             Item itm = new Item();
             try
@@ -179,10 +179,10 @@ namespace KMS.Retail.Model
                     {
                         conn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = paramName;
+                        cmd.CommandText = spName;
 
-                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_ID, itemID);
-                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_COMMON, paramValue);
+                        cmd.Parameters.AddWithValue(paramName, paramValue);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_ID, itemId);
 
                         MySqlDataReader reader = cmd.ExecuteReader();
                         if (reader.HasRows)

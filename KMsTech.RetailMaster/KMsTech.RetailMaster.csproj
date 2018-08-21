@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B8261EF-4538-4724-888F-A3C76BE6402D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KMsTech.RetailMaster</RootNamespace>
+    <AssemblyName>KMsTech.RetailMaster</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmBrandMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBrandMaster.Designer.cs">
+      <DependentUpon>FrmBrandMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomer.Designer.cs">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDuplicateOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDuplicateOrder.Designer.cs">
+      <DependentUpon>FrmDuplicateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmItems.Designer.cs">
+      <DependentUpon>FrmItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPayment.Designer.cs">
+      <DependentUpon>FrmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewSalesOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNewSalesOrder.Designer.cs">
+      <DependentUpon>FrmNewSalesOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSalesOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSalesOrders.Designer.cs">
+      <DependentUpon>FrmSalesOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiRetailMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiRetailMaster.Designer.cs">
+      <DependentUpon>MdiRetailMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBrandMaster.resx">
+      <DependentUpon>FrmBrandMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCustomer.resx">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmItems.resx">
+      <DependentUpon>FrmItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewSalesOrder.resx">
+      <DependentUpon>FrmNewSalesOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSalesOrders.resx">
+      <DependentUpon>FrmSalesOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiRetailMaster.resx">
+      <DependentUpon>MdiRetailMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSalesOrder.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Brand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewItem.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\kmstechs.png" />
+    <None Include="Resources\SalesOrders.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KMsTech.RetailCommon\KMsTech.RetailCommon.csproj">
+      <Project>{c2a564b0-434b-4cea-ac06-8505a775085f}</Project>
+      <Name>KMsTech.RetailCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMsTech.RetailController\KMsTech.RetailController.csproj">
+      <Project>{68f45874-3582-46f9-ba24-af764b055c55}</Project>
+      <Name>KMsTech.RetailController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMsTech.RetailEntities\KMsTech.RetailEntities.csproj">
+      <Project>{43334fa8-9c15-49c9-b0af-b632f9efb24f}</Project>
+      <Name>KMsTech.RetailEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KMsTech.RetailInterfaces\KMsTech.RetailInterfaces.csproj">
+      <Project>{5a2e8093-3b8f-4ad6-8738-bb4d6e0f3d10}</Project>
+      <Name>KMsTech.RetailInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

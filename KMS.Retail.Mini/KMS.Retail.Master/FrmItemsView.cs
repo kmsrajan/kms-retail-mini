@@ -35,6 +35,7 @@ namespace KMS.Retail.Master
             {
                 ItemDataModel itmModel = new ItemDataModel();
                 dgItems.DataSource = itmModel.GetAllItems();
+                rbAll_CheckedChanged(null, null);
             }
 
         }
@@ -50,6 +51,7 @@ namespace KMS.Retail.Master
             {
                 ItemDataModel itmModel = new ItemDataModel();
                 dgItems.DataSource = itmModel.GetAllItems();
+                rbAll_CheckedChanged(null, null);
             }
         }
 
@@ -64,6 +66,7 @@ namespace KMS.Retail.Master
             {
                 ItemDataModel itmModel = new ItemDataModel();
                 dgItems.DataSource = itmModel.GetAllItems();
+                rbAll_CheckedChanged(null, null);
             }
         }
 
@@ -71,6 +74,7 @@ namespace KMS.Retail.Master
         {
             ItemDataModel itmModel = new ItemDataModel();
             itmModel.DeleteItem(CurrentItem.ID);
+           
         }
         private void FrmItemsView_Load(object sender, EventArgs e)
         {
@@ -88,6 +92,7 @@ namespace KMS.Retail.Master
 
         private void dgItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.RowIndex>=0)
             GetItemDetails(dgItems.Rows[e.RowIndex]);
         }
 
@@ -187,6 +192,11 @@ namespace KMS.Retail.Master
             txtItemSrch.Text = string.Empty;
             ItemDataModel itmModel = new ItemDataModel();
             dgItems.DataSource = itmModel.GetAllItems();
+        }
+
+        private void dgItems_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
         }
     }
 }

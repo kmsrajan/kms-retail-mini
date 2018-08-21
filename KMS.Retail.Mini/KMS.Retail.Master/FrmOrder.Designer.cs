@@ -254,6 +254,7 @@
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 55;
             this.label4.Text = "எண்ணிக்கை";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button4
             // 

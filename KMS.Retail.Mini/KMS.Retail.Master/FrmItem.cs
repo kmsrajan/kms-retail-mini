@@ -68,8 +68,8 @@ namespace KMS.Retail.Master
             txtGST.Text = itm.GST.ToString();
             lblTax.Text = itm.Tax.ToString();
             txtQty.Text = itm.Qty.ToString();
-            cmbCategory.Text = itm.Category;
-            cmbItemStatus.Text = itm.Status;
+            cmbCategory.SelectedValue = Int32.Parse(itm.Category);
+            cmbItemStatus.SelectedValue = Int32.Parse(itm.Status);
             if (itm.Picture != null)
             {
                 picItemImage.Image = Global.ByteArrayToImage(itm.Picture);
@@ -98,7 +98,7 @@ namespace KMS.Retail.Master
             picItemImage.Enabled = state;
             cmbCategory.Enabled = state;
             cmbItemStatus.Enabled = state;
-            
+                       
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -112,6 +112,9 @@ namespace KMS.Retail.Master
         {
             ItemDataModel itmModel = new ItemDataModel();
             itmModel.SaveItem(GetItemDetails());
+            string res=FrmMsg.MsgBox("Success", "Item updates successfully");
+            this.Close();
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -119,6 +122,7 @@ namespace KMS.Retail.Master
             ShowConfirmDialog(Constants.CONST_MSG_001, "Save");
             ItemDataModel itmModel = new ItemDataModel();
             itmModel.DeleteItem(GetItemDetails().ID);
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -168,8 +172,8 @@ namespace KMS.Retail.Master
             item.Qty = Int32.Parse(Global.GetVal(txtQty.Text, Constants.CON_DT_INT));
             item.GST = Convert.ToDecimal(Global.GetVal(txtGST.Text, Constants.CON_DT_DEC));
             item.Tax = Convert.ToDecimal(Global.GetVal(txtTax.Text, Constants.CON_DT_DEC));
-           // item.Status = Global.GetVal(cmbItemStatus.SelectedValue.ToString();
-           //  item.Category = Global.GetVal(cmbCategory.SelectedValue.ToString();
+            item.Status = Global.GetVal(cmbItemStatus.SelectedValue.ToString());
+            item.Category = Global.GetVal(cmbCategory.SelectedValue.ToString());
 
             if (picItemImage.Image != null)
             {
@@ -199,6 +203,7 @@ namespace KMS.Retail.Master
                 {
                     SetItemFields(CurrentItem);
                     SetItemFieldsState(true);
+                    
                 }
             }
             else if (!IsNew && ReadOnly)
@@ -209,6 +214,7 @@ namespace KMS.Retail.Master
             else
             {
                 SetItemFieldsState(true);
+                btnCancel.Enabled = false;
             }
         }
         private void btnPicture_Click(object sender, EventArgs e)
@@ -287,7 +293,7 @@ namespace KMS.Retail.Master
             }
 
             //Check if duplicate
-            if(itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_CODE,null, txtItemCode.Text))
+            if(itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_CODE,Constants.CON_PARAM_ITEM_COMMON, txtItemCode.Text,txtItemId.Text))
             {
                 img = @"D:\KMS_REPO\KMS.Retail.Mini\KMS.Retail.Master\Images\Stop.PNG";
             }
@@ -306,7 +312,7 @@ namespace KMS.Retail.Master
             }
 
             //Check if duplicate
-            if (itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_SHORTNAME,null, txtItemShortName.Text))
+            if (itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_SHORTNAME,Constants.CON_PARAM_ITEM_COMMON, txtItemShortName.Text, txtItemId.Text))
             {
                 img = @"D:\KMS_REPO\KMS.Retail.Mini\KMS.Retail.Master\Images\Stop.PNG";
             }
@@ -324,13 +330,14 @@ namespace KMS.Retail.Master
             }
 
             //Check if duplicate
-            if (itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_NAME, null,txtItemName.Text))
+            if (itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_NAME, Constants.CON_PARAM_ITEM_COMMON, txtItemName.Text, txtItemId.Text))
             {
                 img = @"D:\KMS_REPO\KMS.Retail.Mini\KMS.Retail.Master\Images\Stop.PNG";
             }
 
             pbName.Image = Image.FromFile(img);
             pbName.SizeMode = PictureBoxSizeMode.StretchImage;
+           
         }
 
         private void txtItemDispName_Leave(object sender, EventArgs e)
@@ -342,7 +349,7 @@ namespace KMS.Retail.Master
             }
 
             //Check if duplicate
-            if (itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_DISPNAME,null, txtItemDispName.Text))
+            if (itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_DISPNAME,Constants.CON_PARAM_ITEM_COMMON, txtItemDispName.Text, txtItemId.Text))
             {
                 img = @"D:\KMS_REPO\KMS.Retail.Mini\KMS.Retail.Master\Images\Stop.PNG";
             }

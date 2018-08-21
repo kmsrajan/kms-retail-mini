@@ -86,7 +86,7 @@ namespace KMS.Retail.Common
         public static string CON_COL_ITEM_SELLING_PRICE = "SellingPrice";
         public static string CON_COL_ITEM_WS_PRICE = "WSPrice";
         public static string CON_COL_ITEM_SPL_PRICE = "SplPrice";
-        public static string CON_COL_ITEM_PICTURE = "ItemPicture";
+        public static string CON_COL_ITEM_PICTURE = "Picture";
         public static string CON_COL_ITEM_STATUS_ID = "Status";
         public static string CON_COL_ITEM_GST = "GST";
         public static string CON_COL_ITEM_TAX = "Tax";

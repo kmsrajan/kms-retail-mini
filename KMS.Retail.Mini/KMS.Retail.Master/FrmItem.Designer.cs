@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button btnDelete;
             this.panel1 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -80,6 +81,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.fdImageBrowse = new System.Windows.Forms.OpenFileDialog();
+            this.ttItem = new System.Windows.Forms.ToolTip(this.components);
             btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -628,6 +630,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmItem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmItem";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmItem_FormClosed);
             this.Load += new System.EventHandler(this.FrmItem_Load);
@@ -704,5 +707,6 @@
         private System.Windows.Forms.PictureBox pbName;
         private System.Windows.Forms.PictureBox pbShortName;
         private System.Windows.Forms.PictureBox pbCode;
+        private System.Windows.Forms.ToolTip ttItem;
     }
 }

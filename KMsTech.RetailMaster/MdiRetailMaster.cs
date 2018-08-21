@@ -7,40 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NLog;
 
-using KMS.Retail.Common;
-
-namespace KMS.Retail.Master
+namespace KMsTech.RetailMaster
 {
-    public partial class MDIHome : Form
+    public partial class MdiRetailMaster : Form
     {
-        #region Private Properties
-
         private int childFormNumber = 0;
-        Logger Logger = LogManager.GetCurrentClassLogger();
 
-        #endregion Private Properties
+        public static String UserName { get; set; }
+        public static String FirstName { get; set; }
+        public static String LastName { get; set; }
 
-        #region Constructor
-        public MDIHome()
+        public MdiRetailMaster()
         {
             InitializeComponent();
-            this.Name = "test";
         }
-
-        #endregion Constructor
-
-        #region Public Properties
-        #endregion Public Properties
-
-        #region Public Methods
-        #endregion Public Methods
-
-        #region Private Methods
-
-        #region Events
-
 
         private void ShowNewForm(object sender, EventArgs e)
         {
@@ -89,7 +70,7 @@ namespace KMS.Retail.Master
         {
         }
 
-
+        
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -119,53 +100,75 @@ namespace KMS.Retail.Master
             }
         }
 
-        #endregion Events
-
-        #endregion Private Methods
-
-        private void menuNewOrder_Click(object sender, EventArgs e)
+        private void MdiRetailMaster_Load(object sender, EventArgs e)
         {
-            FrmNewSalesOrder activateForm = FrmNewSalesOrder.FrmInstance;
-            ActivateChildForm(activateForm, FormWindowState.Maximized);
-        }
 
-        private void menuItemDetails_Click(object sender, EventArgs e)
-        {
-            FrmItemsView activateForm = FrmItemsView.FrmInstance;
-            ActivateChildForm(activateForm, FormWindowState.Maximized);
-        }
+            //Open login window and set  global variable with logged in user details
+            //FrmLogin activateForm = FrmLogin.FrmInstance;
+            //ActivateChildForm(activateForm, FormWindowState.Normal);
+           // MdiRetailMaster mdiRetailsMaster = new MdiRetailMaster();
+            //activateForm.MdiParent = this;
+            
+            //activateForm.WindowState = FormWindowState.Normal;
+            //activateForm.ShowDialog();
+            
 
-        private void menuInvoiceDetails_Click(object sender, EventArgs e)
-        {
-            FrmInvoice activateForm = FrmInvoice.FrmInstance;
-            ActivateChildForm(activateForm, FormWindowState.Maximized);
         }
 
         private void ActivateChildForm(Form activateForm, FormWindowState winState)
         {
+            
             if (activateForm.WindowState == FormWindowState.Minimized)
                 activateForm.WindowState = winState;
 
-            MDIHome mdiRetailsMaster = new MDIHome();
+            MdiRetailMaster mdiRetailsMaster = new MdiRetailMaster();
             activateForm.MdiParent = this;
             activateForm.WindowState = winState;
             activateForm.Show();
             activateForm.Activate();
         }
 
-        private void MDIHome_Load(object sender, EventArgs e)
+        private void tslCustomers_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            this.Location = new Point(0, 0);
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            //Screen.PrimaryScreen.WorkingArea;
+            //Open customers window 
+            FrmCustomer activateForm = FrmCustomer.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
         }
 
-        private void menuNewItem_Click(object sender, EventArgs e)
+        private void tslItems_Click(object sender, EventArgs e)
         {
-            FrmItem frmItem = new FrmItem();
-            frmItem.StartPosition = FormStartPosition.CenterParent;
-            frmItem.ShowDialog();
+            //Open customers window 
+            FrmItems activateForm = FrmItems.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
+        }
+
+        private void tslBrands_Click(object sender, EventArgs e)
+        {
+            //Open brand window 
+            FrmBrandMaster activateForm = FrmBrandMaster.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
+        }
+
+        private void tsbNewOrder_Click(object sender, EventArgs e)
+        {
+            //Open sales order window 
+            FrmNewSalesOrder activateForm = FrmNewSalesOrder.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
+        }
+
+        private void tslSO_Click(object sender, EventArgs e)
+        {
+            //Open sales order window 
+            FrmSalesOrders activateForm = FrmSalesOrders.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
+            
+        }
+
+        private void fileMenu_Click(object sender, EventArgs e)
+        {
+            //Open sales order window 
+            FrmNewSalesOrder activateForm = FrmNewSalesOrder.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
         }
     }
 }
