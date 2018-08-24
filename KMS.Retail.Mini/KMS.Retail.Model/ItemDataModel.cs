@@ -141,6 +141,33 @@ namespace KMS.Retail.Model
             }
         }
 
+        public DataTable GetAllAvailableItems()
+        {
+            MySqlDataAdapter adptr = new MySqlDataAdapter();
+            DataTable dt = new DataTable(Constants.CON_DT_ITEMS);
+            try
+            {
+
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        conn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = Constants.CON_SP_GET_ALL_AVBL_ITEMS;
+                        adptr = new MySqlDataAdapter(cmd);
+                        adptr.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new NotImplementedException();
+            }
+
+            return dt;
+        }
         public DataTable GetAllItems()
         {
             MySqlDataAdapter adptr = new MySqlDataAdapter();

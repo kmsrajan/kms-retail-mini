@@ -50,6 +50,7 @@ namespace KMS.Retail.Common
         public static string CON_SP_INSERT_NEW_ITEM = "sp_Insert_NewItem";
         public static string CON_SP_UPDATE_ITEM = "sp_UpdateItem";
         public static string CON_SP_UPDATE_ITEM_STATUS = "sp_UpdateItemStatus";
+        public static string CON_SP_GET_ALL_AVBL_ITEMS = "sp_GetAllAvailableItems";
 
         //Inpute parameters
         public static string CON_PARAM_ITEM_ID = "@pId";
@@ -91,6 +92,10 @@ namespace KMS.Retail.Common
         public static string CON_COL_ITEM_GST = "GST";
         public static string CON_COL_ITEM_TAX = "Tax";
         public static string CON_COL_ITEM_CREATED_DATE = "CreatedDate";
+
+        //catagory table
+        public static string CON_FLD_CATAGORY_ID = "CID";
+        public static string CON_FLD_CATAGORY = "Category";
 
         #endregion
 
