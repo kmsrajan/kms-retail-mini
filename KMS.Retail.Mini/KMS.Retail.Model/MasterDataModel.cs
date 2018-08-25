@@ -40,6 +40,7 @@ namespace KMS.Retail.Model
                         cmd.CommandText = Constants.CON_SP_GET_ALL_CATEGORIES;
                         adptr = new MySqlDataAdapter(cmd);
                         adptr.Fill(dt);
+                        
                     }
                 }
             }

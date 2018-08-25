@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,14 @@ namespace KMS.Retail.Master
 {
     public partial class FrmNewSalesOrder : Form
     {
+        Item CurrentItem=new Item();
+        SoldItem soldItem = new SoldItem();
+        List<SoldItem> soldItemColl = new List<SoldItem>();
+        DataTable dtable = new DataTable();
+        int itmId = 0;
+
         private static FrmNewSalesOrder _frmInstance;
+
         public static FrmNewSalesOrder FrmInstance
         {
             get
@@ -77,12 +85,15 @@ namespace KMS.Retail.Master
                             pbItem.Image = null;
                         }
 
+                        //cmbPriceCatagory.Items.Clear();
+                        
                         cmbPriceCatagory.DataSource = itemPriceColl;
                         cmbPriceCatagory.ValueMember = "Price";
                         cmbPriceCatagory.DisplayMember = "Name";
 
-                        cmbPriceCatagory.SelectedText = Constants.CON_COL_ITEM_SELLING_PRICE;
-
+                        txtPrice.Text = cmbPriceCatagory.SelectedValue.ToString();
+                        txtPrice.Enabled = false;
+                        cmbPriceCatagory.Enabled = false;
                     }
                 }
             }
@@ -92,17 +103,49 @@ namespace KMS.Retail.Master
 
         private void FrmNewSalesOrder_Load(object sender, EventArgs e)
         {
+
+
             //load all items in to listbox
             ItemDataModel itmModel = new ItemDataModel();
             lbItems.DataSource = itmModel.GetAllAvailableItems();
             lbItems.DisplayMember =Constants.CON_COL_ITEM_DISP_NAME;
             lbItems.ValueMember = Constants.CON_COL_ITEM_ID;
-                        
+
+            BindCatagory();
+            SetGridViewStyle();
+
+
+        }
+        private void SetGridViewStyle()
+        {
+            dgItems.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+            dgItems.RowsDefaultCellStyle.BackColor = Color.AliceBlue;
+            dgItems.RowTemplate.Height = 30;
+            dgItems.AlternatingRowsDefaultCellStyle.BackColor = Color.FloralWhite;
+            dgItems.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
+
+            //dgItems.Columns.Add("ID", "ID");
+            //dgItems.Columns.Add("Code", "Code");
+            //dgItems.Columns.Add("Name", "Name");
+            //dgItems.Columns.Add("DisplayName", "DisplayName");
+            //dgItems.Columns.Add("MRP", "MRP");
+            //dgItems.Columns.Add("SellingPrice", "Price");
+            //dgItems.Columns.Add("Qty", "Qty");
+            //dgItems.Columns.Add("Amount", "Amount");
+            //dgItems.Columns.Add("Discount", "Discount");
+        }
+
+        private void BindCatagory()
+        {
             MasterDataModel masterData = new MasterDataModel();
-            cmbCategory.DataSource = masterData.GetAllCategories();
+            DataTable dt = masterData.GetAllCategories();
+            DataRow row = dt.NewRow();
+            row[Constants.CON_FLD_CATAGORY_ID] = "0";
+            row[Constants.CON_FLD_CATAGORY] = "அனைத்து வகைகளும்";
+            dt.Rows.InsertAt(row, 0);
+            cmbCategory.DataSource = dt;
             cmbCategory.ValueMember = Constants.CON_FLD_CATAGORY_ID;
             cmbCategory.DisplayMember = Constants.CON_FLD_CATAGORY;
-
         }
 
         private void FrmNewSalesOrder_FormClosing(object sender, FormClosingEventArgs e)
@@ -130,7 +173,7 @@ namespace KMS.Retail.Master
             if (!string.IsNullOrEmpty(txtItemCode.Text.Trim()))
             {
                 txtShortName.Text = string.Empty;
-                (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'",Constants.CON_COL_ITEM_CODE,txtItemCode.Text.Trim());
+                (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", Constants.CON_COL_ITEM_CODE, txtItemCode.Text.Trim());
                 if (lbItems.Items.Count > 0)
                 {
                     lbItems.SelectedIndex = 0;
@@ -143,12 +186,32 @@ namespace KMS.Retail.Master
         {
             if (!string.IsNullOrEmpty(cmbCategory.SelectedValue.ToString()))
             {
-                
-                (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'",Constants.CON_FLD_CATAGORY, cmbCategory.SelectedValue);
-                if (lbItems.Items.Count > 0)
+                if (!cmbCategory.SelectedValue.ToString().Equals("System.Data.DataRowView"))
                 {
-                    lbItems.SelectedIndex = 0;
-                    txtItemName.Text = lbItems.Text;
+                    if (!cmbCategory.SelectedValue.ToString().Equals("0"))
+                    {
+                        if (!string.IsNullOrEmpty(txtItemCode.Text.Trim()))
+                        {
+                            (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%'", Constants.CON_FLD_CATAGORY, cmbCategory.SelectedValue,Constants.CON_COL_ITEM_CODE,txtItemCode.Text.Trim());
+                        }
+                        else if (!string.IsNullOrEmpty(txtShortName.Text.Trim()))
+                        {
+                            (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%' AND {2} LIKE '%{3}%'", Constants.CON_FLD_CATAGORY, cmbCategory.SelectedValue, Constants.CON_COL_ITEM_SHORT_NAME, txtShortName.Text.Trim());
+                        }
+                        else
+                        {
+                            (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", Constants.CON_FLD_CATAGORY, cmbCategory.SelectedValue);
+                        }
+                    }
+                    else
+                    {
+                        (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Empty;
+                    }
+                    if (lbItems.Items.Count > 0)
+                    {
+                        lbItems.SelectedIndex = 0;
+                        txtItemName.Text = lbItems.Text;
+                    }
                 }
             }
         }
@@ -158,7 +221,7 @@ namespace KMS.Retail.Master
             if (!string.IsNullOrEmpty(txtShortName.Text.Trim()))
             {
                 txtItemCode.Text = string.Empty;
-                (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'",Constants.CON_COL_ITEM_SHORT_NAME,txtShortName.Text.Trim());
+                (lbItems.DataSource as DataTable).DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", Constants.CON_COL_ITEM_SHORT_NAME, txtShortName.Text.Trim());
                 if (lbItems.Items.Count > 0)
                 {
                     lbItems.SelectedIndex = 0;
@@ -179,15 +242,98 @@ namespace KMS.Retail.Master
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            if (!IsValidPrice(10.52))
+            if (!IsValidPrice(double.Parse(CurrentItem.PurchasePrice.ToString())))
             {
                 FrmMsg.MsgBox("Price validation failed", "Purchase price is grater than sales price");
+                return;
             }
-        }
 
+            if (!string.IsNullOrEmpty(txtQty.Text.Trim()))
+            {
+                if (int.Parse(txtQty.Text.Trim()) <= 0)
+                {
+                    FrmMsg.MsgBox("No quantity", "Please add quantity");
+                    return;
+                }
+            }
+            else
+            {
+                FrmMsg.MsgBox("No quantity", "Please add quantity");
+                return;
+            }
+
+            soldItem=new SoldItem();
+            soldItem.Code = CurrentItem.Code;
+            soldItem.ID = itmId++.ToString();
+            soldItem.Name = CurrentItem.Name;
+            soldItem.DisplayName = CurrentItem.DisplayName;
+            soldItem.SellingPrice = CurrentItem.SellingPrice;
+            soldItem.Qty = int.Parse(txtQty.Text.Trim());
+            soldItem.MRP = CurrentItem.MRP;
+            soldItem.Amount = soldItem.Qty * soldItem.SellingPrice;
+
+            soldItemColl.Add(soldItem);
+            dtable = ToDataTable(soldItemColl);
+            dgItems.DataSource = dtable;
+
+            object sumAmount;
+            sumAmount = dtable.Compute("Sum(Amount)", string.Empty);
+            txtTotalAmount.Text = sumAmount.ToString();
+            txtNetTotal.Text = sumAmount.ToString();
+
+            object sumQty;
+            sumQty = dtable.Compute("Sum(Qty)", string.Empty);
+            txtTotalQty.Text = sumQty.ToString();
+            txtDiscount.Text = "0";
+            //if (!string.IsNullOrEmpty(txtDiscount.Text.Trim()))
+            //{
+            //    txtNetTotal.Text = Convert.ToString(decimal.Parse(txtTotalAmount.Text) - decimal.Parse(txtDiscount.Text));
+            //}
+        }
+        public static DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            //Get all the properties
+            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                //Defining type of data column gives proper data table 
+                var type = (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>) ? Nullable.GetUnderlyingType(prop.PropertyType) : prop.PropertyType);
+                //Setting column names as Property names
+                dataTable.Columns.Add(prop.Name, type);
+            }
+            foreach (T item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    //inserting property values to datatable rows
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+            //put a breakpoint here and check datatable
+            return dataTable;
+        }
+        private void AddNewItem(SoldItem item)
+        {
+            DataGridViewRow newItem =new DataGridViewRow();
+            newItem.Cells[0].Value = item.ID.ToString();
+            newItem.Cells[1].Value = item.Code.ToString();
+            newItem.Cells[2].Value = item.Name.ToString();
+            newItem.Cells[3].Value = item.DisplayName.ToString();
+            newItem.Cells[4].Value = item.SellingPrice.ToString();
+            newItem.Cells[5].Value = item.Qty.ToString();
+            newItem.Cells[6].Value = item.MRP.ToString();
+            newItem.Cells[7].Value = item.MRP.ToString();
+            newItem.Cells[8].Value = Convert.ToString(soldItem.Qty * soldItem.SellingPrice);
+
+            dgItems.Rows.Add();
+        }
         private Item GetItemDetails(string ItemId)
         {
-            Item CurrentItem = new Item();
+            CurrentItem = new Item();
             try
             {
                 DataRow[] result = (lbItems.DataSource as DataTable).Select(string.Format("{0} = {1}",Constants.CON_COL_ITEM_ID,ItemId));
@@ -329,6 +475,68 @@ namespace KMS.Retail.Master
                 cmbCategory.ValueMember = Constants.CON_FLD_CATAGORY_ID;
                 cmbCategory.DisplayMember = Constants.CON_FLD_CATAGORY;
             }
+        }
+
+        private void cmbPriceCatagory_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Enabled = true;
+        }
+
+        private void txtPrice_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void lblPricecatagory_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            txtPrice.Enabled = true;
+            cmbPriceCatagory.Enabled = true;
+        }
+
+        private void btnSearchItem_Click(object sender, EventArgs e)
+        {
+            //BindCatagory();
+            dgItems.DataSource = soldItemColl;
+            dgItems.Refresh();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtItemCode.Text = string.Empty;
+            txtShortName.Text = string.Empty;
+            cmbCategory.SelectedIndex=0;
+
+        }
+
+        private void dgItems_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+           
+        }
+
+        private void dgItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtDiscount_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtDiscount.Text.Trim()))
+            {
+                txtNetTotal.Text = Convert.ToString(decimal.Parse(txtTotalAmount.Text) - decimal.Parse(txtDiscount.Text));
+            }
+        }
+
+        private void dgItems_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            string itid=dgItems.SelectedRows[0].Cells["ID"].Value.ToString();
+            var firstMatch = soldItemColl.First(s => s.ID == itid);
+            soldItemColl.Remove(firstMatch);
+
+            dtable = ToDataTable(soldItemColl);
+            dtable.AcceptChanges();
+
+            dgItems.DataSource = dtable;
+
         }
     }
 }

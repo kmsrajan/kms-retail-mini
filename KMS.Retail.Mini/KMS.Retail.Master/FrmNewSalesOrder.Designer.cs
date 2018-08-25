@@ -30,11 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewSalesOrder));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.btnSearchItem = new System.Windows.Forms.Button();
             this.btnAddNewStack = new System.Windows.Forms.Button();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblPricecatagory = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.Label();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -55,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtTaxbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotalQty = new System.Windows.Forms.TextBox();
             this.txtNetTotal = new System.Windows.Forms.TextBox();
@@ -70,7 +73,6 @@
             this.btnSaveOrder = new System.Windows.Forms.Button();
             this.btnPayOrder = new System.Windows.Forms.Button();
             this.btnCancelOrder = new System.Windows.Forms.Button();
-            this.txtAmount = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).BeginInit();
             this.panel2.SuspendLayout();
@@ -86,12 +88,13 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.txtAmount);
             this.panel1.Controls.Add(this.btnSearchItem);
             this.panel1.Controls.Add(this.btnAddNewStack);
             this.panel1.Controls.Add(this.cmbCategory);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.lblPricecatagory);
             this.panel1.Controls.Add(this.Price);
             this.panel1.Controls.Add(this.btnAddItem);
             this.panel1.Controls.Add(this.txtPrice);
@@ -110,23 +113,46 @@
             this.panel1.Size = new System.Drawing.Size(425, 719);
             this.panel1.TabIndex = 0;
             // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(5, 562);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(125, 51);
+            this.btnClear.TabIndex = 87;
+            this.btnClear.Text = "சுத்தம் செய்";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAmount.ForeColor = System.Drawing.Color.Gray;
+            this.txtAmount.Location = new System.Drawing.Point(266, 533);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.ReadOnly = true;
+            this.txtAmount.Size = new System.Drawing.Size(148, 24);
+            this.txtAmount.TabIndex = 86;
+            // 
             // btnSearchItem
             // 
             this.btnSearchItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSearchItem.Location = new System.Drawing.Point(371, 2);
+            this.btnSearchItem.Location = new System.Drawing.Point(370, 1);
             this.btnSearchItem.Name = "btnSearchItem";
-            this.btnSearchItem.Size = new System.Drawing.Size(50, 57);
+            this.btnSearchItem.Size = new System.Drawing.Size(48, 58);
             this.btnSearchItem.TabIndex = 3;
-            this.btnSearchItem.Text = "தேடு";
+            this.btnSearchItem.Text = "All";
             this.btnSearchItem.UseVisualStyleBackColor = true;
+            this.btnSearchItem.Click += new System.EventHandler(this.btnSearchItem_Click);
             // 
             // btnAddNewStack
             // 
             this.btnAddNewStack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewStack.Location = new System.Drawing.Point(152, 562);
+            this.btnAddNewStack.Location = new System.Drawing.Point(145, 562);
             this.btnAddNewStack.Name = "btnAddNewStack";
-            this.btnAddNewStack.Size = new System.Drawing.Size(125, 60);
+            this.btnAddNewStack.Size = new System.Drawing.Size(125, 51);
             this.btnAddNewStack.TabIndex = 12;
             this.btnAddNewStack.Text = "புதிய பொருள்";
             this.btnAddNewStack.UseVisualStyleBackColor = true;
@@ -146,27 +172,29 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(155, 433);
+            this.label20.Location = new System.Drawing.Point(148, 433);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(109, 20);
             this.label20.TabIndex = 46;
             this.label20.Text = "எண்ணிக்கை";
             // 
-            // label14
+            // lblPricecatagory
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(155, 471);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 20);
-            this.label14.TabIndex = 47;
-            this.label14.Text = "வரைவு";
+            this.lblPricecatagory.AutoSize = true;
+            this.lblPricecatagory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPricecatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPricecatagory.Location = new System.Drawing.Point(152, 463);
+            this.lblPricecatagory.Name = "lblPricecatagory";
+            this.lblPricecatagory.Size = new System.Drawing.Size(64, 22);
+            this.lblPricecatagory.TabIndex = 47;
+            this.lblPricecatagory.Text = "வரைவு";
+            this.lblPricecatagory.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lblPricecatagory_MouseDoubleClick);
             // 
             // Price
             // 
             this.Price.AutoSize = true;
             this.Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Price.Location = new System.Drawing.Point(206, 514);
+            this.Price.Location = new System.Drawing.Point(194, 494);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(57, 20);
             this.Price.TabIndex = 40;
@@ -177,8 +205,8 @@
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddItem.Location = new System.Drawing.Point(283, 562);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(135, 60);
-            this.btnAddItem.TabIndex = 9;
+            this.btnAddItem.Size = new System.Drawing.Size(135, 51);
+            this.btnAddItem.TabIndex = 7;
             this.btnAddItem.Text = "சேர்";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
@@ -186,10 +214,11 @@
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(269, 510);
+            this.txtPrice.Location = new System.Drawing.Point(263, 497);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(147, 31);
-            this.txtPrice.TabIndex = 8;
+            this.txtPrice.Size = new System.Drawing.Size(153, 31);
+            this.txtPrice.TabIndex = 71;
+            this.txtPrice.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtPrice_MouseDoubleClick);
             // 
             // txtItemName
             // 
@@ -198,7 +227,7 @@
             this.txtItemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtItemName.Location = new System.Drawing.Point(3, 95);
             this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(417, 29);
+            this.txtItemName.Size = new System.Drawing.Size(413, 29);
             this.txtItemName.TabIndex = 4;
             // 
             // lbItems
@@ -216,18 +245,19 @@
             // 
             this.cmbPriceCatagory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPriceCatagory.FormattingEnabled = true;
-            this.cmbPriceCatagory.Location = new System.Drawing.Point(223, 471);
+            this.cmbPriceCatagory.Location = new System.Drawing.Point(222, 463);
             this.cmbPriceCatagory.Name = "cmbPriceCatagory";
             this.cmbPriceCatagory.Size = new System.Drawing.Size(194, 28);
-            this.cmbPriceCatagory.TabIndex = 7;
+            this.cmbPriceCatagory.TabIndex = 70;
             this.cmbPriceCatagory.SelectedIndexChanged += new System.EventHandler(this.cmbPriceCatagory_SelectedIndexChanged);
+            this.cmbPriceCatagory.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cmbPriceCatagory_MouseDoubleClick);
             // 
             // txtQty
             // 
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.Location = new System.Drawing.Point(270, 430);
+            this.txtQty.Location = new System.Drawing.Point(263, 426);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(147, 31);
+            this.txtQty.Size = new System.Drawing.Size(153, 31);
             this.txtQty.TabIndex = 6;
             this.txtQty.Leave += new System.EventHandler(this.txtQty_Leave);
             // 
@@ -359,6 +389,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.txtTaxbox);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.txtTotalQty);
             this.panel5.Controls.Add(this.txtNetTotal);
@@ -369,10 +400,19 @@
             this.panel5.Controls.Add(this.txtTax);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.cbTax);
-            this.panel5.Location = new System.Drawing.Point(2, 0);
+            this.panel5.Location = new System.Drawing.Point(2, -1);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(949, 79);
             this.panel5.TabIndex = 2;
+            // 
+            // txtTaxbox
+            // 
+            this.txtTaxbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTaxbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTaxbox.Location = new System.Drawing.Point(3, 48);
+            this.txtTaxbox.Name = "txtTaxbox";
+            this.txtTaxbox.Size = new System.Drawing.Size(66, 26);
+            this.txtTaxbox.TabIndex = 3;
             // 
             // label2
             // 
@@ -387,7 +427,7 @@
             // txtTotalQty
             // 
             this.txtTotalQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalQty.Location = new System.Drawing.Point(740, 33);
+            this.txtTotalQty.Location = new System.Drawing.Point(740, 35);
             this.txtTotalQty.Name = "txtTotalQty";
             this.txtTotalQty.ReadOnly = true;
             this.txtTotalQty.Size = new System.Drawing.Size(69, 38);
@@ -405,10 +445,11 @@
             // txtDiscount
             // 
             this.txtDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.Location = new System.Drawing.Point(371, 28);
+            this.txtDiscount.Location = new System.Drawing.Point(371, 35);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(126, 38);
             this.txtDiscount.TabIndex = 16;
+            this.txtDiscount.Leave += new System.EventHandler(this.txtDiscount_Leave);
             // 
             // label10
             // 
@@ -423,7 +464,7 @@
             // txtTotalAmount
             // 
             this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalAmount.Location = new System.Drawing.Point(220, 30);
+            this.txtTotalAmount.Location = new System.Drawing.Point(220, 36);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(133, 38);
@@ -442,7 +483,7 @@
             // txtTax
             // 
             this.txtTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTax.Location = new System.Drawing.Point(74, 30);
+            this.txtTax.Location = new System.Drawing.Point(75, 36);
             this.txtTax.Name = "txtTax";
             this.txtTax.ReadOnly = true;
             this.txtTax.Size = new System.Drawing.Size(129, 38);
@@ -467,7 +508,7 @@
             this.cbTax.Items.AddRange(new object[] {
             "GST",
             "Tax"});
-            this.cbTax.Location = new System.Drawing.Point(5, 26);
+            this.cbTax.Location = new System.Drawing.Point(3, 4);
             this.cbTax.Name = "cbTax";
             this.cbTax.Size = new System.Drawing.Size(66, 42);
             this.cbTax.TabIndex = 13;
@@ -475,14 +516,21 @@
             // 
             // dgItems
             // 
+            this.dgItems.AllowUserToAddRows = false;
             this.dgItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgItems.Location = new System.Drawing.Point(4, 80);
+            this.dgItems.Location = new System.Drawing.Point(7, 76);
+            this.dgItems.MultiSelect = false;
             this.dgItems.Name = "dgItems";
+            this.dgItems.ReadOnly = true;
+            this.dgItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgItems.Size = new System.Drawing.Size(946, 593);
             this.dgItems.TabIndex = 19;
+            this.dgItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgItems_CellDoubleClick);
+            this.dgItems.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgItems_UserDeletedRow);
+            this.dgItems.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgItems_UserDeletingRow);
             // 
             // panel4
             // 
@@ -527,16 +575,6 @@
             this.btnCancelOrder.TabIndex = 22;
             this.btnCancelOrder.Text = "நிராகரி";
             this.btnCancelOrder.UseVisualStyleBackColor = true;
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(3, 579);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(143, 22);
-            this.txtAmount.TabIndex = 86;
             // 
             // FrmNewSalesOrder
             // 
@@ -584,7 +622,7 @@
         private System.Windows.Forms.TextBox txtItemName;
         private System.Windows.Forms.ListBox lbItems;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblPricecatagory;
         private System.Windows.Forms.Label Price;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.ComboBox cmbPriceCatagory;
@@ -610,5 +648,7 @@
         private System.Windows.Forms.CheckedListBox cbTax;
         private System.Windows.Forms.Button btnSearchItem;
         private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtTaxbox;
+        private System.Windows.Forms.Button btnClear;
     }
 }
