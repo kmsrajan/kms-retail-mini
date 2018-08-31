@@ -106,11 +106,17 @@
     <Compile Include="FrmProcessOrder.Designer.cs">
       <DependentUpon>FrmProcessOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="MDIHome.cs">
+    <Compile Include="FrmSOItemEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MDIHome.Designer.cs">
-      <DependentUpon>MDIHome.cs</DependentUpon>
+    <Compile Include="FrmSOItemEdit.Designer.cs">
+      <DependentUpon>FrmSOItemEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiRetailMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiRetailMaster.Designer.cs">
+      <DependentUpon>MdiRetailMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,8 +149,11 @@
     <EmbeddedResource Include="FrmProcessOrder.resx">
       <DependentUpon>FrmProcessOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MDIHome.resx">
-      <DependentUpon>MDIHome.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSOItemEdit.resx">
+      <DependentUpon>FrmSOItemEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiRetailMaster.resx">
+      <DependentUpon>MdiRetailMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -154,6 +163,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ResourceTamil.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,8 +195,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\items1.jpg" />
+    <None Include="Resources\items.jpg" />
+    <None Include="Icons\AddNewItem.PNG" />
+    <None Include="Icons\Brand.png" />
+    <None Include="Icons\Customers.png" />
     <Content Include="Icons\Done.ico" />
     <Content Include="Icons\KMs.ico" />
+    <Content Include="Icons\kmstechs.png" />
+    <None Include="Icons\NewSalesOrder.PNG" />
+    <None Include="Icons\SalesOrders.png" />
     <Content Include="Images\Blank.PNG" />
     <Content Include="Images\calcissue.PNG" />
     <Content Include="Images\Capture.PNG" />

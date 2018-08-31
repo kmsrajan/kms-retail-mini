@@ -35,29 +35,33 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.txtCustName = new System.Windows.Forms.TextBox();
             this.lblCustName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbPhoto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(136, 250);
+            this.btnSave.Location = new System.Drawing.Point(166, 250);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(144, 35);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "சேமி";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(365, 250);
+            this.btnCancel.Location = new System.Drawing.Point(356, 250);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(149, 35);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "நிராகரி";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblMobile
             // 
@@ -108,14 +112,14 @@
             this.lblCustName.TabIndex = 5;
             this.lblCustName.Text = "பெயர்";
             // 
-            // textBox1
+            // txtAddress
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(236, 155);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 68);
-            this.textBox1.TabIndex = 8;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(236, 155);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(269, 68);
+            this.txtAddress.TabIndex = 8;
             // 
             // label1
             // 
@@ -128,13 +132,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "முகவரி";
             // 
+            // pbPhoto
+            // 
+            this.pbPhoto.Location = new System.Drawing.Point(517, 84);
+            this.pbPhoto.Name = "pbPhoto";
+            this.pbPhoto.Size = new System.Drawing.Size(131, 138);
+            this.pbPhoto.TabIndex = 9;
+            this.pbPhoto.TabStop = false;
+            // 
             // FrmSaveOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(617, 306);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(685, 318);
+            this.Controls.Add(this.pbPhoto);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCustName);
             this.Controls.Add(this.lblCustName);
@@ -148,6 +161,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmSaveOrder";
             this.Text = "சேமி";
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,7 +176,8 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.TextBox txtCustName;
         private System.Windows.Forms.Label lblCustName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbPhoto;
     }
 }

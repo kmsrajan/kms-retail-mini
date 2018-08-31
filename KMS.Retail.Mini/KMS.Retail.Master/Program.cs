@@ -16,7 +16,7 @@ namespace KMS.Retail.Master
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIHome());
+            Application.Run(new MdiRetailMaster());
         }
     }
 }

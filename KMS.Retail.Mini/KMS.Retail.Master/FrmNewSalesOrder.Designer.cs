@@ -57,7 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtTaxbox = new System.Windows.Forms.TextBox();
+            this.txtTaxPercentage = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotalQty = new System.Windows.Forms.TextBox();
             this.txtNetTotal = new System.Windows.Forms.TextBox();
@@ -389,7 +389,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.txtTaxbox);
+            this.panel5.Controls.Add(this.txtTaxPercentage);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.txtTotalQty);
             this.panel5.Controls.Add(this.txtNetTotal);
@@ -405,14 +405,17 @@
             this.panel5.Size = new System.Drawing.Size(949, 79);
             this.panel5.TabIndex = 2;
             // 
-            // txtTaxbox
+            // txtTaxPercentage
             // 
-            this.txtTaxbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTaxbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaxbox.Location = new System.Drawing.Point(3, 48);
-            this.txtTaxbox.Name = "txtTaxbox";
-            this.txtTaxbox.Size = new System.Drawing.Size(66, 26);
-            this.txtTaxbox.TabIndex = 3;
+            this.txtTaxPercentage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTaxPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTaxPercentage.Location = new System.Drawing.Point(3, 48);
+            this.txtTaxPercentage.MaxLength = 2;
+            this.txtTaxPercentage.Name = "txtTaxPercentage";
+            this.txtTaxPercentage.Size = new System.Drawing.Size(54, 26);
+            this.txtTaxPercentage.TabIndex = 14;
+            this.txtTaxPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxbox_KeyPress);
+            this.txtTaxPercentage.Leave += new System.EventHandler(this.txtTaxbox_Leave);
             // 
             // label2
             // 
@@ -521,7 +524,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgItems.Location = new System.Drawing.Point(7, 76);
+            this.dgItems.Location = new System.Drawing.Point(4, 77);
             this.dgItems.MultiSelect = false;
             this.dgItems.Name = "dgItems";
             this.dgItems.ReadOnly = true;
@@ -529,6 +532,7 @@
             this.dgItems.Size = new System.Drawing.Size(946, 593);
             this.dgItems.TabIndex = 19;
             this.dgItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgItems_CellDoubleClick);
+            this.dgItems.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgItems_CellMouseDoubleClick);
             this.dgItems.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgItems_UserDeletedRow);
             this.dgItems.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgItems_UserDeletingRow);
             // 
@@ -555,6 +559,7 @@
             this.btnSaveOrder.TabIndex = 20;
             this.btnSaveOrder.Text = "சேமி  ";
             this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
             // btnPayOrder
             // 
@@ -648,7 +653,7 @@
         private System.Windows.Forms.CheckedListBox cbTax;
         private System.Windows.Forms.Button btnSearchItem;
         private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.TextBox txtTaxbox;
+        private System.Windows.Forms.TextBox txtTaxPercentage;
         private System.Windows.Forms.Button btnClear;
     }
 }

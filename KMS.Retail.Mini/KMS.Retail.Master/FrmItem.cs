@@ -293,7 +293,7 @@ namespace KMS.Retail.Master
             }
 
             //Check if duplicate
-            if(itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_CODE,Constants.CON_PARAM_ITEM_COMMON, txtItemCode.Text,txtItemId.Text))
+            if(itmModel.IsValidItem(Constants.CON_SP_GET_ITEM_BY_CODE_AND_ID,Constants.CON_PARAM_ITEM_COMMON, txtItemCode.Text,txtItemId.Text))
             {
                 img = @"D:\KMS_REPO\KMS.Retail.Mini\KMS.Retail.Master\Images\Stop.PNG";
             }

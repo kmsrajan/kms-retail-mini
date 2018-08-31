@@ -195,11 +195,59 @@ namespace KMS.Retail.Model
 
             return dt;
         }
-        public bool IsValidItem(string spName, string paramName,string paramValue,string itemId)
+
+        public List<ItemPrice> GetUniqueItem(string param, string value)
+        {
+            MySqlDataReader reader;
+            List<ItemPrice> itemPriceColl = new List<ItemPrice>();
+            try
+            {
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        conn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = Constants.CON_SP_GET_ITEM_BY_ID;
+                        cmd.Parameters.AddWithValue(param, value);
+
+                        reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            if (!string.IsNullOrEmpty(reader[Constants.CON_COL_ITEM_SELLING_PRICE].ToString()))
+                            {
+                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_SELLING_PRICE, reader[Constants.CON_COL_ITEM_SELLING_PRICE].ToString()));
+                            }
+                            if (!string.IsNullOrEmpty(reader[Constants.CON_COL_ITEM_WS_PRICE].ToString()))
+                            {
+                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_WS_PRICE, reader[Constants.CON_COL_ITEM_WS_PRICE].ToString()));
+                            }
+                            if (!string.IsNullOrEmpty(reader[Constants.CON_COL_ITEM_SPL_PRICE].ToString()))
+                            {
+                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_SPL_PRICE, reader[Constants.CON_COL_ITEM_SPL_PRICE].ToString()));
+
+                                if (!string.IsNullOrEmpty(reader[Constants.CON_COL_ITEM_MRP].ToString()))
+                                {
+                                    itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_MRP, reader[Constants.CON_COL_ITEM_MRP].ToString()));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+
+            return itemPriceColl;
+        }
+        public bool IsValidItem(string spName, string paramName, string paramValue, string itemId)
         {
             Item itm = new Item();
             try
-            {               
+            {
                 using (var conn = new MySqlConnection(_connectionString))
                 {
                     using (var cmd = conn.CreateCommand())

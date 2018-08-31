@@ -39,7 +39,10 @@ namespace KMS.Retail.Common
         public static string CON_SP_GET_ITEM_BY_NAME = "sp_GetItemByName";
         public static string CON_SP_GET_ITEM_BY_SHORTNAME = "sp_GetItemByShortName";
         public static string CON_SP_GET_ITEM_BY_DISPNAME = "sp_GetItemByDisplayName";
-        public static string CON_SP_GET_ITEM_BY_CODE = "sp_GetItemByCode";
+        public static string CON_SP_GET_ITEM_BY_CODE_AND_ID = "sp_GetItemByCodeAndID";
+        public static string CON_SP_GET_ITEM_BY_ID = "sp_GetItemById";
+        
+
 
         #endregion Stored procedures
 
@@ -51,6 +54,7 @@ namespace KMS.Retail.Common
         public static string CON_SP_UPDATE_ITEM = "sp_UpdateItem";
         public static string CON_SP_UPDATE_ITEM_STATUS = "sp_UpdateItemStatus";
         public static string CON_SP_GET_ALL_AVBL_ITEMS = "sp_GetAllAvailableItems";
+        public static string CON_SP_GET_UNIQUE_ITEM = "sp_GetUniqueItems";
 
         //Inpute parameters
         public static string CON_PARAM_ITEM_ID = "@pId";

@@ -55,23 +55,41 @@ namespace KMS.Retail.Master
                     if (!lbItems.SelectedValue.ToString().Equals("System.Data.DataRowView"))
                     {
                         Item itm=GetItemDetails(lbItems.SelectedValue.ToString());
-
-                        if(itm.SellingPrice > 0)
+                        if (itm.Code != "0000")
                         {
-                            itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_SELLING_PRICE, itm.SellingPrice.ToString()));
-                        }
-                        if (itm.WSPrice > 0)
-                        {
-                            itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_WS_PRICE, itm.WSPrice.ToString()));
-                        }
-                        if (itm.SplPrice > 0)
-                        {
-                            itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_SPL_PRICE, itm.SplPrice.ToString()));
-
-                            if (itm.MRP > 0)
+                            if (itm.SellingPrice > 0)
                             {
-                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_MRP, itm.MRP.ToString()));
+                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_SELLING_PRICE, itm.SellingPrice.ToString()));
                             }
+                            if (itm.WSPrice > 0)
+                            {
+                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_WS_PRICE, itm.WSPrice.ToString()));
+                            }
+                            if (itm.SplPrice > 0)
+                            {
+                                itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_SPL_PRICE, itm.SplPrice.ToString()));
+
+                                if (itm.MRP > 0)
+                                {
+                                    itemPriceColl.Add(new ItemPrice(Constants.CON_COL_ITEM_MRP, itm.MRP.ToString()));
+                                }
+                            }
+                            //cmbPriceCatagory.Items.Clear();
+
+                            cmbPriceCatagory.DataSource = itemPriceColl;
+                            cmbPriceCatagory.ValueMember = "Price";
+                            cmbPriceCatagory.DisplayMember = "Name";
+
+                            txtPrice.Text = cmbPriceCatagory.SelectedValue.ToString();
+                            txtPrice.Enabled = false;
+                            cmbPriceCatagory.Enabled = false;
+                        }
+                        else
+                        {
+                            txtPrice.Enabled = true ;
+                            txtQty.Text = string.Empty;
+                            txtPrice.Text = string.Empty;
+                            cmbPriceCatagory.Enabled = false;
                         }
                                                 
                         txtQty.Text = itm.Qty.ToString();
@@ -85,15 +103,7 @@ namespace KMS.Retail.Master
                             pbItem.Image = null;
                         }
 
-                        //cmbPriceCatagory.Items.Clear();
                         
-                        cmbPriceCatagory.DataSource = itemPriceColl;
-                        cmbPriceCatagory.ValueMember = "Price";
-                        cmbPriceCatagory.DisplayMember = "Name";
-
-                        txtPrice.Text = cmbPriceCatagory.SelectedValue.ToString();
-                        txtPrice.Enabled = false;
-                        cmbPriceCatagory.Enabled = false;
                     }
                 }
             }
@@ -244,11 +254,11 @@ namespace KMS.Retail.Master
         {
             if (!IsValidPrice(double.Parse(CurrentItem.PurchasePrice.ToString())))
             {
-                FrmMsg.MsgBox("Price validation failed", "Purchase price is grater than sales price");
+                //FrmMsg.MsgBox("Price validation failed", "Purchase price is grater than sales price");
                 return;
             }
-
-            if (!string.IsNullOrEmpty(txtQty.Text.Trim()))
+           
+                if (!string.IsNullOrEmpty(txtQty.Text.Trim()))
             {
                 if (int.Parse(txtQty.Text.Trim()) <= 0)
                 {
@@ -263,23 +273,31 @@ namespace KMS.Retail.Master
             }
 
             soldItem=new SoldItem();
+            soldItem.ItemId = CurrentItem.ID;
             soldItem.Code = CurrentItem.Code;
             soldItem.ID = itmId++.ToString();
             soldItem.Name = CurrentItem.Name;
             soldItem.DisplayName = CurrentItem.DisplayName;
-            soldItem.SellingPrice = CurrentItem.SellingPrice;
+            soldItem.SellingPrice =decimal.Parse(txtPrice.Text);
             soldItem.Qty = int.Parse(txtQty.Text.Trim());
-            soldItem.MRP = CurrentItem.MRP;
+            if (CurrentItem.Code != "0000")
+            {
+                soldItem.MRP = CurrentItem.MRP;
+            }
+            else
+            {
+                soldItem.MRP = 0;
+            }
             soldItem.Amount = soldItem.Qty * soldItem.SellingPrice;
-
+            
             soldItemColl.Add(soldItem);
             dtable = ToDataTable(soldItemColl);
             dgItems.DataSource = dtable;
 
-            object sumAmount;
-            sumAmount = dtable.Compute("Sum(Amount)", string.Empty);
-            txtTotalAmount.Text = sumAmount.ToString();
-            txtNetTotal.Text = sumAmount.ToString();
+            //object sumAmount;
+            //sumAmount = dtable.Compute("Sum(Amount)", string.Empty);
+            //txtTotalAmount.Text = sumAmount.ToString();
+            BillAmountCalculator();
 
             object sumQty;
             sumQty = dtable.Compute("Sum(Qty)", string.Empty);
@@ -380,6 +398,12 @@ namespace KMS.Retail.Master
             {
                 if (string.IsNullOrEmpty(txtPrice.Text.Trim()))
                 {
+                    FrmMsg.MsgBox("Price validation failed", "Price cannot be empty");
+                    isValid = false;
+                }
+                else if (double.Parse(txtPrice.Text.Trim())<=0)
+                {
+                    FrmMsg.MsgBox("Price validation failed", "Price cannot be zero or less than zero");
                     isValid = false;
                 }
                 else
@@ -387,6 +411,7 @@ namespace KMS.Retail.Master
                     //check if modified price is less than purchase price
                     if (double.Parse(txtPrice.Text.Trim()) < purPrice)
                     {
+                        FrmMsg.MsgBox("Price validation failed", "Purchase price is grater than sales price");
                         isValid = false;
                     }
                     
@@ -449,7 +474,9 @@ namespace KMS.Retail.Master
             {
                 if (!txtPrice.Text.Equals("KMS.Retail.Model.ItemPrice"))
                 {
-                    txtAmount.Text = Convert.ToString(decimal.Parse(txtQty.Text.Trim()) * decimal.Parse(txtPrice.Text));
+                    if (!string.IsNullOrEmpty(txtAmount.Text)){
+                        txtAmount.Text = Convert.ToString(decimal.Parse(txtQty.Text.Trim()) * decimal.Parse(txtPrice.Text));
+                    }
                 }
             }
         }
@@ -515,14 +542,25 @@ namespace KMS.Retail.Master
 
         private void dgItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            string response=FrmSOItemEdit.ItemBox(dgItems.Rows[e.RowIndex].Cells["ItemId"].Value.ToString(), dgItems.Rows[e.RowIndex].Cells["Qty"].Value.ToString(), dgItems.Rows[e.RowIndex].Cells["Code"].Value.ToString());
+            if (response.ToLowerInvariant().StartsWith("update"))
+            {
+                string[] resVal = response.Split('|');
 
+                dgItems.Rows[e.RowIndex].Cells["Qty"].Value = resVal[1];
+                dgItems.Rows[e.RowIndex].Cells["SellingPrice"].Value = resVal[2];
+
+                dgItems.Rows[e.RowIndex].Cells["Amount"].Value = decimal.Parse(resVal[2])*decimal.Parse(resVal[1]);
+                BillAmountCalculator();
+            }
+            return;
         }
 
         private void txtDiscount_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtDiscount.Text.Trim()))
             {
-                txtNetTotal.Text = Convert.ToString(decimal.Parse(txtTotalAmount.Text) - decimal.Parse(txtDiscount.Text));
+                txtNetTotal.Text = Convert.ToString(decimal.Parse(txtTotalAmount.Text)+ decimal.Parse(txtTax.Text) - decimal.Parse(txtDiscount.Text));
             }
         }
 
@@ -537,6 +575,97 @@ namespace KMS.Retail.Master
 
             dgItems.DataSource = dtable;
 
+        }
+
+        private void txtTaxbox_Leave(object sender, EventArgs e)
+        {
+            BillAmountCalculator();
+               
+        }
+
+        private void txtTaxbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            BillAmountCalculator();
+        }
+
+        private void BillAmountCalculator()
+        {
+            double taxPer = 0.0;
+            //double totalAmt = double.Parse(txtTaxPercentage.Text.Trim());
+            //double taxPer = double.Parse(txtTaxPercentage.Text.Trim());
+            //double taxPer = double.Parse(txtTaxPercentage.Text.Trim());
+            //double taxPer = double.Parse(txtTaxPercentage.Text.Trim());
+
+            double totalTax = 0.0;
+            double totalAmt = 0.0;
+            double discount = 0.0;
+            double netTotal = 0.0;
+
+            //total withour tax
+            if (dgItems.Rows.Count > 0)
+            {
+                object sumAmount;
+                sumAmount = dtable.Compute("Sum(Amount)", string.Empty);
+                totalAmt =double.Parse(sumAmount.ToString());
+            }
+
+            //total tax calculation
+            if (!string.IsNullOrEmpty(txtTaxPercentage.Text))
+            {
+                taxPer=double.Parse(txtTaxPercentage.Text.Trim());
+                if (taxPer > 0)
+                {
+                    totalTax = (double.Parse(txtTotalAmount.Text) / 100) * double.Parse(txtTaxPercentage.Text);
+                }
+
+            }
+
+            //net total calculation
+            if (string.IsNullOrEmpty(txtDiscount.Text))
+            {
+                netTotal=totalAmt+totalTax;
+            }
+            else
+            {
+                discount = double.Parse(txtDiscount.Text);
+                netTotal = totalAmt + totalTax-discount;
+            }
+
+            //fill text box
+            txtTotalAmount.Text = Convert.ToString(totalAmt);
+            txtTax.Text = Convert.ToString(totalTax);
+            txtNetTotal.Text = Convert.ToString(netTotal);
+        }
+
+        private void dgItems_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        private void btnSaveOrder_Click(object sender, EventArgs e)
+        {
+            Invoice inv = new Invoice();
+
+            DataTable itemsDt = (DataTable)(dgItems.DataSource);
+
+            //inv.ID=
+            //inv.InvoiceNo=
+            //inv.CustName=
+            //inv.CustAddress=
+            //inv.Mobile=
+            //inv.Photo=
+            inv.Items = itemsDt;
+            inv.TotalAmount = txtTotalAmount.Text;
+            inv.TaxType = string.Empty;
+            inv.TotalTax = txtTax.Text;
+            inv.Discount = txtDiscount.Text;
+            inv.NetTotal = txtNetTotal.Text;
+            inv.PaymentMode = string.Empty;
+            inv.PaymentStatus = string.Empty;
+            inv.InvoiceStatus = "draft";
+            inv.AmountReceived = string.Empty;
+            inv.CreatedDate = DateTime.Now.ToString();   
+            FrmSaveOrder.SaveSalesOrder(inv);
         }
     }
 }
