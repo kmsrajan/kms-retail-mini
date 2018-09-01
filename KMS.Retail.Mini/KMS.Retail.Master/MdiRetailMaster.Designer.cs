@@ -51,13 +51,13 @@
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsbNewOrder = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslItems = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tslSO = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.lblUser = new System.Windows.Forms.Label();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -261,6 +261,11 @@
             this.tsbNewOrder.Text = "புதிய ரசீது";
             this.tsbNewOrder.Click += new System.EventHandler(this.tsbNewOrder_Click);
             // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 55);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -269,12 +274,17 @@
             // tslItems
             // 
             this.tslItems.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.tslItems.Image = global::KMS.Retail.Master.ResourceTamil.items1;
+            this.tslItems.Image = global::KMS.Retail.Master.ResourceTamil.AddNewItem1;
             this.tslItems.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tslItems.Name = "tslItems";
-            this.tslItems.Size = new System.Drawing.Size(283, 52);
+            this.tslItems.Size = new System.Drawing.Size(239, 52);
             this.tslItems.Text = "பொருட்கள் விவரம்";
             this.tslItems.Click += new System.EventHandler(this.tslItems_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 55);
             // 
             // toolStripSeparator2
             // 
@@ -295,16 +305,6 @@
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 55);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 55);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 55);
             // 
             // lblUser
             // 

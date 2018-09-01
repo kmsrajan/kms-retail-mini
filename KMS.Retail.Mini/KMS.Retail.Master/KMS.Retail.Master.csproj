@@ -88,11 +88,11 @@
     <Compile Include="FrmNewSalesOrder.Designer.cs">
       <DependentUpon>FrmNewSalesOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrder.cs">
+    <Compile Include="FrmSalesInvoices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrder.Designer.cs">
-      <DependentUpon>FrmOrder.cs</DependentUpon>
+    <Compile Include="FrmSalesInvoices.Designer.cs">
+      <DependentUpon>FrmSalesInvoices.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSaveOrder.cs">
       <SubType>Form</SubType>
@@ -125,6 +125,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceTamil.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmBillOut.resx">
+      <DependentUpon>FrmBillOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInvoice.resx">
       <DependentUpon>FrmInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,8 +143,8 @@
     <EmbeddedResource Include="FrmNewSalesOrder.resx">
       <DependentUpon>FrmNewSalesOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrder.resx">
-      <DependentUpon>FrmOrder.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSalesInvoices.resx">
+      <DependentUpon>FrmSalesInvoices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSaveOrder.resx">
       <DependentUpon>FrmSaveOrder.cs</DependentUpon>

@@ -55,7 +55,7 @@
             // 
             this.pnlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHeader.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnlHeader.BackColor = System.Drawing.Color.Sienna;
             this.pnlHeader.Controls.Add(this.lblFrmTitle);
             this.pnlHeader.Location = new System.Drawing.Point(1, 1);
             this.pnlHeader.Name = "pnlHeader";
@@ -67,6 +67,7 @@
             this.lblFrmTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFrmTitle.AutoSize = true;
             this.lblFrmTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrmTitle.ForeColor = System.Drawing.SystemColors.Window;
             this.lblFrmTitle.Location = new System.Drawing.Point(418, 11);
             this.lblFrmTitle.Name = "lblFrmTitle";
             this.lblFrmTitle.Size = new System.Drawing.Size(268, 25);
@@ -88,8 +89,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.BackColor = System.Drawing.Color.Sienna;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.Window;
             this.btnDelete.Location = new System.Drawing.Point(735, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(169, 34);
@@ -100,8 +102,9 @@
             // 
             // btnView
             // 
-            this.btnView.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.BackColor = System.Drawing.Color.Sienna;
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnView.ForeColor = System.Drawing.SystemColors.Window;
             this.btnView.Location = new System.Drawing.Point(530, 5);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(186, 34);
@@ -112,8 +115,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
             this.btnUpdate.Location = new System.Drawing.Point(328, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(181, 34);
@@ -124,8 +128,9 @@
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.BackColor = System.Drawing.Color.Sienna;
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNew.Location = new System.Drawing.Point(109, 5);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(200, 34);
@@ -154,8 +159,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnSearch.BackColor = System.Drawing.Color.Sienna;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Window;
             this.btnSearch.Location = new System.Drawing.Point(990, 10);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(62, 29);
@@ -179,7 +185,7 @@
             this.dgItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgItems.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.dgItems.BackgroundColor = System.Drawing.Color.PeachPuff;
             this.dgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgItems.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgItems.Location = new System.Drawing.Point(3, 45);
@@ -207,6 +213,7 @@
             this.rbAll.AutoSize = true;
             this.rbAll.Checked = true;
             this.rbAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAll.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbAll.Location = new System.Drawing.Point(11, 10);
             this.rbAll.Name = "rbAll";
             this.rbAll.Size = new System.Drawing.Size(119, 24);
@@ -220,6 +227,7 @@
             // 
             this.rbDispName.AutoSize = true;
             this.rbDispName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDispName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbDispName.Location = new System.Drawing.Point(602, 10);
             this.rbDispName.Name = "rbDispName";
             this.rbDispName.Size = new System.Drawing.Size(131, 24);
@@ -231,6 +239,7 @@
             // 
             this.rbName.AutoSize = true;
             this.rbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbName.Location = new System.Drawing.Point(443, 10);
             this.rbName.Name = "rbName";
             this.rbName.Size = new System.Drawing.Size(148, 24);
@@ -242,6 +251,7 @@
             // 
             this.rbShortName.AutoSize = true;
             this.rbShortName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbShortName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbShortName.Location = new System.Drawing.Point(289, 10);
             this.rbShortName.Name = "rbShortName";
             this.rbShortName.Size = new System.Drawing.Size(142, 24);
@@ -253,6 +263,7 @@
             // 
             this.rbItemCode.AutoSize = true;
             this.rbItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbItemCode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.rbItemCode.Location = new System.Drawing.Point(143, 10);
             this.rbItemCode.Name = "rbItemCode";
             this.rbItemCode.Size = new System.Drawing.Size(134, 24);
@@ -265,12 +276,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.Linen;
             this.ClientSize = new System.Drawing.Size(1084, 661);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlHeader);
-            this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "FrmItemsView";

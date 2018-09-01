@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMS.Retail.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,26 +56,26 @@ namespace KMS.Retail.Master
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            response = "1";
+            response = Constants.Response.YES.ToString();
             frmMsg.Dispose();
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            response = "2";
+            response = Constants.Response.NO.ToString();
             frmMsg.Dispose();
         }
 
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            response = "4";
+            response = Constants.Response.CLOSE.ToString(); 
             frmMsg.Dispose();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            response = "3";
+            response = Constants.Response.CANCEL.ToString();
             frmMsg.Dispose();
         }
     }

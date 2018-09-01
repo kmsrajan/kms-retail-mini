@@ -51,6 +51,7 @@
             this.pbItem = new System.Windows.Forms.PictureBox();
             this.lblItemCode = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -115,13 +116,14 @@
             // 
             // btnClear
             // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(5, 562);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(125, 51);
             this.btnClear.TabIndex = 87;
             this.btnClear.Text = "சுத்தம் செய்";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtAmount
@@ -149,13 +151,14 @@
             // 
             // btnAddNewStack
             // 
-            this.btnAddNewStack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewStack.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnAddNewStack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNewStack.Location = new System.Drawing.Point(145, 562);
             this.btnAddNewStack.Name = "btnAddNewStack";
             this.btnAddNewStack.Size = new System.Drawing.Size(125, 51);
             this.btnAddNewStack.TabIndex = 12;
             this.btnAddNewStack.Text = "புதிய பொருள்";
-            this.btnAddNewStack.UseVisualStyleBackColor = true;
+            this.btnAddNewStack.UseVisualStyleBackColor = false;
             this.btnAddNewStack.Click += new System.EventHandler(this.btnAddNewStack_Click);
             // 
             // cmbCategory
@@ -202,13 +205,14 @@
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddItem.Location = new System.Drawing.Point(283, 562);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(135, 51);
             this.btnAddItem.TabIndex = 7;
             this.btnAddItem.Text = "சேர்";
-            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.UseVisualStyleBackColor = false;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // txtPrice
@@ -325,7 +329,8 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel2.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.textBox1);
@@ -334,6 +339,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1381, 64);
             this.panel2.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Window;
+            this.label3.Location = new System.Drawing.Point(106, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(238, 24);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "புதிய விற்பனை படிவம்";
             // 
             // pictureBox1
             // 
@@ -368,6 +385,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Window;
             this.label1.Location = new System.Drawing.Point(1078, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 20);
@@ -429,6 +447,7 @@
             // 
             // txtTotalQty
             // 
+            this.txtTotalQty.BackColor = System.Drawing.Color.OldLace;
             this.txtTotalQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalQty.Location = new System.Drawing.Point(740, 35);
             this.txtTotalQty.Name = "txtTotalQty";
@@ -438,6 +457,7 @@
             // 
             // txtNetTotal
             // 
+            this.txtNetTotal.BackColor = System.Drawing.Color.OldLace;
             this.txtNetTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNetTotal.Location = new System.Drawing.Point(512, 9);
             this.txtNetTotal.Name = "txtNetTotal";
@@ -466,6 +486,7 @@
             // 
             // txtTotalAmount
             // 
+            this.txtTotalAmount.BackColor = System.Drawing.Color.OldLace;
             this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalAmount.Location = new System.Drawing.Point(220, 36);
             this.txtTotalAmount.Name = "txtTotalAmount";
@@ -485,6 +506,7 @@
             // 
             // txtTax
             // 
+            this.txtTax.BackColor = System.Drawing.Color.OldLace;
             this.txtTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTax.Location = new System.Drawing.Point(75, 36);
             this.txtTax.Name = "txtTax";
@@ -504,7 +526,7 @@
             // 
             // cbTax
             // 
-            this.cbTax.BackColor = System.Drawing.SystemColors.Menu;
+            this.cbTax.BackColor = System.Drawing.Color.OldLace;
             this.cbTax.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cbTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTax.FormattingEnabled = true;
@@ -523,6 +545,7 @@
             this.dgItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgItems.BackgroundColor = System.Drawing.Color.Moccasin;
             this.dgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgItems.Location = new System.Drawing.Point(4, 77);
             this.dgItems.MultiSelect = false;
@@ -550,6 +573,7 @@
             // 
             // btnSaveOrder
             // 
+            this.btnSaveOrder.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnSaveOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveOrder.Image")));
             this.btnSaveOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -558,33 +582,37 @@
             this.btnSaveOrder.Size = new System.Drawing.Size(120, 36);
             this.btnSaveOrder.TabIndex = 20;
             this.btnSaveOrder.Text = "சேமி  ";
-            this.btnSaveOrder.UseVisualStyleBackColor = true;
+            this.btnSaveOrder.UseVisualStyleBackColor = false;
             this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
             // btnPayOrder
             // 
+            this.btnPayOrder.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnPayOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayOrder.Location = new System.Drawing.Point(131, 3);
             this.btnPayOrder.Name = "btnPayOrder";
             this.btnPayOrder.Size = new System.Drawing.Size(165, 37);
             this.btnPayOrder.TabIndex = 21;
             this.btnPayOrder.Text = "பணம் செலுத்து";
-            this.btnPayOrder.UseVisualStyleBackColor = true;
+            this.btnPayOrder.UseVisualStyleBackColor = false;
+            this.btnPayOrder.Click += new System.EventHandler(this.btnPayOrder_Click);
             // 
             // btnCancelOrder
             // 
+            this.btnCancelOrder.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnCancelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelOrder.Location = new System.Drawing.Point(304, 3);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(145, 36);
             this.btnCancelOrder.TabIndex = 22;
             this.btnCancelOrder.Text = "நிராகரி";
-            this.btnCancelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.UseVisualStyleBackColor = false;
             // 
             // FrmNewSalesOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1383, 789);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -655,5 +683,6 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.TextBox txtTaxPercentage;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label3;
     }
 }

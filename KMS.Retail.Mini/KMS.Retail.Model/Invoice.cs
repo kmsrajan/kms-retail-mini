@@ -25,6 +25,8 @@ namespace KMS.Retail.Model
         public string PaymentStatus { get; set; }
         public string InvoiceStatus { get; set; }
         public string AmountReceived { get; set; }
+        public string BalanceAmount { get; set; }
         public string CreatedDate { get; set; }
+        public string CustomerDetails { get; set; }
     }
 }

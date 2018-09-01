@@ -644,6 +644,10 @@ namespace KMS.Retail.Master
 
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
+            FrmSaveOrder.SaveSalesOrder(PrepareInvoice());
+        }
+        private Invoice PrepareInvoice()
+        {
             Invoice inv = new Invoice();
 
             DataTable itemsDt = (DataTable)(dgItems.DataSource);
@@ -664,8 +668,16 @@ namespace KMS.Retail.Master
             inv.PaymentStatus = string.Empty;
             inv.InvoiceStatus = "draft";
             inv.AmountReceived = string.Empty;
-            inv.CreatedDate = DateTime.Now.ToString();   
-            FrmSaveOrder.SaveSalesOrder(inv);
+            inv.CreatedDate = DateTime.Now.ToString();
+            return inv;
+        }
+        private void btnPayOrder_Click(object sender, EventArgs e)
+        {
+           Invoice invc= FrmSaveOrder.MakePayment(PrepareInvoice());
+            if (!string.IsNullOrEmpty(invc.CustomerDetails))
+            {
+                FrmBillOut.MakePayment(invc);
+            }
         }
     }
 }

@@ -22,6 +22,13 @@ namespace KMS.Retail.Common
 
         #endregion Messages
 
+        #region ResponseMessage
+        public enum Response
+        {
+            OK, YES, NO, CANCEL, CLOSE,SUCCESS,FAIL
+        }
+        #endregion ResponseMessage
+
         #region datatypes
         public static string CON_DT_INT ="INT";
         public static string CON_DT_DEC = "DEC";
@@ -56,7 +63,13 @@ namespace KMS.Retail.Common
         public static string CON_SP_GET_ALL_AVBL_ITEMS = "sp_GetAllAvailableItems";
         public static string CON_SP_GET_UNIQUE_ITEM = "sp_GetUniqueItems";
 
-        //Inpute parameters
+        public static string CON_SP_GET_ALL_INVOICES = "sp_GetAllInvoices";
+        public static string CON_SP_INSERT_NEW_INVOICE = "sp_Insert_NewInvoice";
+        public static string CON_SP_UPDATE_INVOICE = "sp_UpdateInvoice";
+        public static string CON_SP_UPDATE_INVOICE_STATUS = "sp_UpdateInvoiceStatus";
+       
+
+        //Item Input parameters
         public static string CON_PARAM_ITEM_ID = "@pId";
         public static string CON_PARAM_ITEM_CODE = "@pCode";
         public static string CON_PARAM_ITEM_NAME = "@pName";
@@ -73,6 +86,24 @@ namespace KMS.Retail.Common
         public static string CON_PARAM_ITEM_STATUS_ID = "@pSID";
         public static string CON_PARAM_ITEM_GST = "@pGST";
         public static string CON_PARAM_ITEM_TAX = "@pTax";
+
+        //Invoice Input parameters
+        public static string CON_PARAM_INVOICE_ID = "@pId";
+        public static string CON_PARAM_INVOICE_NO = "@pInvoiceNo";
+        public static string CON_PARAM_INVOICE_CUST_NAME = "@pCustName";
+        public static string CON_PARAM_INVOICE_CUST_MOBILE = "@pMobile";
+        public static string CON_PARAM_INVOICE_CUST_ADS = "@pCustAddress";
+        public static string CON_PARAM_INVOICE_CUST_PHOTO = "@pPhoto";
+        public static string CON_PARAM_INVOICE_STATUS = "@pStatus";
+        public static string CON_PARAM_INVOICE_ITEMS = "@pItems";
+        public static string CON_PARAM_INVOICE_TOTAL_AMT = "@pTotalAmount";
+        public static string CON_PARAM_INVOICE_TAX_TYPE = "@pTaxType";
+        public static string CON_PARAM_INVOICE_TOTAL_TAX = "@pTotalTax";
+        public static string CON_PARAM_INVOICE_DISCOUNT = "@pDiscount";
+        public static string CON_PARAM_INVOICE_NET_TOTAL = "@pNetTotal";
+        public static string CON_PARAM_INVOICE_PAYMENET_MODE = "@pPaymentMode";
+        public static string CON_PARAM_INVOICE_AMT_RECEIVED = "@pAmountReceived";
+        public static string CON_PARAM_INVOICE_DATE = "@pCreatedDate";
 
         public static string CON_PARAM_ITEM_COMMON = "@pCommon";
         //data table

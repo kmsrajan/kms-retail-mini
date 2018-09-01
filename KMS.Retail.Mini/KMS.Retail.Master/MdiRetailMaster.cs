@@ -142,7 +142,7 @@ namespace KMS.Retail.Master
 
         private void tslSO_Click(object sender, EventArgs e)
         {
-            FrmInvoice activateForm = FrmInvoice.FrmInstance;
+            FrmSalesInvoices activateForm = FrmSalesInvoices.FrmInstance;
             ActivateChildForm(activateForm, FormWindowState.Maximized);
 
         }
