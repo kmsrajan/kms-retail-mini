@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewSalesOrder));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblF4 = new System.Windows.Forms.Label();
+            this.lblF3 = new System.Windows.Forms.Label();
+            this.lblF2 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.btnSearchItem = new System.Windows.Forms.Button();
@@ -51,6 +54,7 @@
             this.pbItem = new System.Windows.Forms.PictureBox();
             this.lblItemCode = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblInvoice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -71,9 +75,12 @@
             this.cbTax = new System.Windows.Forms.CheckedListBox();
             this.dgItems = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnClearInvoice = new System.Windows.Forms.Button();
             this.btnSaveOrder = new System.Windows.Forms.Button();
             this.btnPayOrder = new System.Windows.Forms.Button();
             this.btnCancelOrder = new System.Windows.Forms.Button();
+            this.btnCurrentPrice = new System.Windows.Forms.Button();
+            this.txtStatus = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).BeginInit();
             this.panel2.SuspendLayout();
@@ -89,6 +96,9 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblF4);
+            this.panel1.Controls.Add(this.lblF3);
+            this.panel1.Controls.Add(this.lblF2);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.txtAmount);
             this.panel1.Controls.Add(this.btnSearchItem);
@@ -109,10 +119,40 @@
             this.panel1.Controls.Add(this.txtItemCode);
             this.panel1.Controls.Add(this.pbItem);
             this.panel1.Controls.Add(this.lblItemCode);
-            this.panel1.Location = new System.Drawing.Point(1, 68);
+            this.panel1.Location = new System.Drawing.Point(1, 63);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(425, 719);
+            this.panel1.Size = new System.Drawing.Size(425, 724);
             this.panel1.TabIndex = 0;
+            // 
+            // lblF4
+            // 
+            this.lblF4.AutoSize = true;
+            this.lblF4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblF4.Location = new System.Drawing.Point(393, 433);
+            this.lblF4.Name = "lblF4";
+            this.lblF4.Size = new System.Drawing.Size(21, 13);
+            this.lblF4.TabIndex = 91;
+            this.lblF4.Text = "F4";
+            // 
+            // lblF3
+            // 
+            this.lblF3.AutoSize = true;
+            this.lblF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblF3.Location = new System.Drawing.Point(399, 71);
+            this.lblF3.Name = "lblF3";
+            this.lblF3.Size = new System.Drawing.Size(21, 13);
+            this.lblF3.TabIndex = 90;
+            this.lblF3.Text = "F3";
+            // 
+            // lblF2
+            // 
+            this.lblF2.AutoSize = true;
+            this.lblF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblF2.Location = new System.Drawing.Point(345, 8);
+            this.lblF2.Name = "lblF2";
+            this.lblF2.Size = new System.Drawing.Size(21, 13);
+            this.lblF2.TabIndex = 89;
+            this.lblF2.Text = "F2";
             // 
             // btnClear
             // 
@@ -120,14 +160,15 @@
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(5, 562);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(125, 51);
+            this.btnClear.Size = new System.Drawing.Size(197, 51);
             this.btnClear.TabIndex = 87;
-            this.btnClear.Text = "சுத்தம் செய்";
+            this.btnClear.Text = "சுத்தம் செய் Ctl+C";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtAmount
             // 
+            this.txtAmount.BackColor = System.Drawing.Color.Moccasin;
             this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmount.ForeColor = System.Drawing.Color.Gray;
@@ -153,11 +194,11 @@
             // 
             this.btnAddNewStack.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnAddNewStack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewStack.Location = new System.Drawing.Point(145, 562);
+            this.btnAddNewStack.Location = new System.Drawing.Point(3, 619);
             this.btnAddNewStack.Name = "btnAddNewStack";
-            this.btnAddNewStack.Size = new System.Drawing.Size(125, 51);
+            this.btnAddNewStack.Size = new System.Drawing.Size(199, 51);
             this.btnAddNewStack.TabIndex = 12;
-            this.btnAddNewStack.Text = "புதிய பொருள்";
+            this.btnAddNewStack.Text = "புதிய பொருள் Ctl+A";
             this.btnAddNewStack.UseVisualStyleBackColor = false;
             this.btnAddNewStack.Click += new System.EventHandler(this.btnAddNewStack_Click);
             // 
@@ -167,7 +208,7 @@
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(129, 63);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(288, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(270, 28);
             this.cmbCategory.TabIndex = 2;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -207,11 +248,11 @@
             // 
             this.btnAddItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(283, 562);
+            this.btnAddItem.Location = new System.Drawing.Point(222, 562);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(135, 51);
+            this.btnAddItem.Size = new System.Drawing.Size(192, 51);
             this.btnAddItem.TabIndex = 7;
-            this.btnAddItem.Text = "சேர்";
+            this.btnAddItem.Text = "சேர் (F1)";
             this.btnAddItem.UseVisualStyleBackColor = false;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
@@ -219,9 +260,13 @@
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.Location = new System.Drawing.Point(263, 497);
+            this.txtPrice.MaxLength = 10;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(153, 31);
             this.txtPrice.TabIndex = 71;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
+            this.txtPrice.Leave += new System.EventHandler(this.txtPrice_Leave);
             this.txtPrice.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtPrice_MouseDoubleClick);
             // 
             // txtItemName
@@ -231,8 +276,8 @@
             this.txtItemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.txtItemName.Location = new System.Drawing.Point(3, 95);
             this.txtItemName.Name = "txtItemName";
-            this.txtItemName.Size = new System.Drawing.Size(413, 29);
-            this.txtItemName.TabIndex = 4;
+            this.txtItemName.Size = new System.Drawing.Size(414, 29);
+            this.txtItemName.TabIndex = 100;
             // 
             // lbItems
             // 
@@ -242,7 +287,7 @@
             this.lbItems.Location = new System.Drawing.Point(5, 130);
             this.lbItems.Name = "lbItems";
             this.lbItems.Size = new System.Drawing.Size(412, 292);
-            this.lbItems.TabIndex = 5;
+            this.lbItems.TabIndex = 4;
             this.lbItems.SelectedIndexChanged += new System.EventHandler(this.lbItems_SelectedIndexChanged);
             // 
             // cmbPriceCatagory
@@ -260,17 +305,21 @@
             // 
             this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQty.Location = new System.Drawing.Point(263, 426);
+            this.txtQty.MaxLength = 5;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(153, 31);
+            this.txtQty.Size = new System.Drawing.Size(130, 31);
             this.txtQty.TabIndex = 6;
+            this.txtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             this.txtQty.Leave += new System.EventHandler(this.txtQty_Leave);
             // 
             // txtShortName
             // 
             this.txtShortName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtShortName.Location = new System.Drawing.Point(129, 33);
+            this.txtShortName.MaxLength = 50;
             this.txtShortName.Name = "txtShortName";
-            this.txtShortName.Size = new System.Drawing.Size(239, 26);
+            this.txtShortName.Size = new System.Drawing.Size(214, 26);
             this.txtShortName.TabIndex = 1;
             this.txtShortName.TextChanged += new System.EventHandler(this.txtShortName_TextChanged);
             this.txtShortName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtShortName_KeyDown);
@@ -298,9 +347,10 @@
             // txtItemCode
             // 
             this.txtItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtItemCode.Location = new System.Drawing.Point(129, 2);
+            this.txtItemCode.Location = new System.Drawing.Point(129, 3);
+            this.txtItemCode.MaxLength = 10;
             this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(239, 26);
+            this.txtItemCode.Size = new System.Drawing.Size(214, 26);
             this.txtItemCode.TabIndex = 0;
             this.txtItemCode.TextChanged += new System.EventHandler(this.txtItemCode_TextChanged);
             this.txtItemCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtItemCode_KeyDown);
@@ -319,7 +369,7 @@
             // 
             this.lblItemCode.AutoSize = true;
             this.lblItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemCode.Location = new System.Drawing.Point(15, 4);
+            this.lblItemCode.Location = new System.Drawing.Point(17, 5);
             this.lblItemCode.Name = "lblItemCode";
             this.lblItemCode.Size = new System.Drawing.Size(106, 20);
             this.lblItemCode.TabIndex = 18;
@@ -330,6 +380,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.panel2.Controls.Add(this.txtStatus);
+            this.panel2.Controls.Add(this.lblInvoice);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.button1);
@@ -337,12 +389,27 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(1, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1381, 64);
+            this.panel2.Size = new System.Drawing.Size(1381, 55);
             this.panel2.TabIndex = 1;
+            // 
+            // lblInvoice
+            // 
+            this.lblInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInvoice.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.lblInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lblInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvoice.ForeColor = System.Drawing.Color.Transparent;
+            this.lblInvoice.Location = new System.Drawing.Point(1132, 30);
+            this.lblInvoice.Name = "lblInvoice";
+            this.lblInvoice.ReadOnly = true;
+            this.lblInvoice.Size = new System.Drawing.Size(125, 24);
+            this.lblInvoice.TabIndex = 87;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
@@ -354,7 +421,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Image = global::KMS.Retail.Master.Properties.Resources.NewSalesOrder;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.TabIndex = 0;
@@ -400,9 +468,9 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.dgItems);
-            this.panel3.Location = new System.Drawing.Point(428, 67);
+            this.panel3.Location = new System.Drawing.Point(428, 63);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(954, 677);
+            this.panel3.Size = new System.Drawing.Size(954, 681);
             this.panel3.TabIndex = 1;
             // 
             // panel5
@@ -428,10 +496,11 @@
             this.txtTaxPercentage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTaxPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaxPercentage.Location = new System.Drawing.Point(3, 48);
-            this.txtTaxPercentage.MaxLength = 2;
+            this.txtTaxPercentage.MaxLength = 5;
             this.txtTaxPercentage.Name = "txtTaxPercentage";
             this.txtTaxPercentage.Size = new System.Drawing.Size(54, 26);
             this.txtTaxPercentage.TabIndex = 14;
+            this.txtTaxPercentage.TextChanged += new System.EventHandler(this.txtTaxPercentage_TextChanged);
             this.txtTaxPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTaxbox_KeyPress);
             this.txtTaxPercentage.Leave += new System.EventHandler(this.txtTaxbox_Leave);
             // 
@@ -469,9 +538,11 @@
             // 
             this.txtDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiscount.Location = new System.Drawing.Point(371, 35);
+            this.txtDiscount.MaxLength = 6;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(126, 38);
             this.txtDiscount.TabIndex = 16;
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscount_KeyPress);
             this.txtDiscount.Leave += new System.EventHandler(this.txtDiscount_Leave);
             // 
             // label10
@@ -552,7 +623,7 @@
             this.dgItems.Name = "dgItems";
             this.dgItems.ReadOnly = true;
             this.dgItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgItems.Size = new System.Drawing.Size(946, 593);
+            this.dgItems.Size = new System.Drawing.Size(946, 597);
             this.dgItems.TabIndex = 19;
             this.dgItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgItems_CellDoubleClick);
             this.dgItems.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgItems_CellMouseDoubleClick);
@@ -563,6 +634,8 @@
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.btnCurrentPrice);
+            this.panel4.Controls.Add(this.btnClearInvoice);
             this.panel4.Controls.Add(this.btnSaveOrder);
             this.panel4.Controls.Add(this.btnPayOrder);
             this.panel4.Controls.Add(this.btnCancelOrder);
@@ -571,17 +644,29 @@
             this.panel4.Size = new System.Drawing.Size(954, 44);
             this.panel4.TabIndex = 2;
             // 
+            // btnClearInvoice
+            // 
+            this.btnClearInvoice.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnClearInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearInvoice.Location = new System.Drawing.Point(525, 2);
+            this.btnClearInvoice.Name = "btnClearInvoice";
+            this.btnClearInvoice.Size = new System.Drawing.Size(175, 36);
+            this.btnClearInvoice.TabIndex = 23;
+            this.btnClearInvoice.Text = "சுத்தம் செய் F8";
+            this.btnClearInvoice.UseVisualStyleBackColor = false;
+            this.btnClearInvoice.Click += new System.EventHandler(this.btnClearInvoice_Click);
+            // 
             // btnSaveOrder
             // 
             this.btnSaveOrder.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnSaveOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveOrder.Image")));
             this.btnSaveOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveOrder.Location = new System.Drawing.Point(5, 4);
+            this.btnSaveOrder.Location = new System.Drawing.Point(226, 2);
             this.btnSaveOrder.Name = "btnSaveOrder";
-            this.btnSaveOrder.Size = new System.Drawing.Size(120, 36);
+            this.btnSaveOrder.Size = new System.Drawing.Size(142, 36);
             this.btnSaveOrder.TabIndex = 20;
-            this.btnSaveOrder.Text = "சேமி  ";
+            this.btnSaveOrder.Text = "சேமி  F6";
             this.btnSaveOrder.UseVisualStyleBackColor = false;
             this.btnSaveOrder.Click += new System.EventHandler(this.btnSaveOrder_Click);
             // 
@@ -589,11 +674,11 @@
             // 
             this.btnPayOrder.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnPayOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPayOrder.Location = new System.Drawing.Point(131, 3);
+            this.btnPayOrder.Location = new System.Drawing.Point(8, 2);
             this.btnPayOrder.Name = "btnPayOrder";
-            this.btnPayOrder.Size = new System.Drawing.Size(165, 37);
+            this.btnPayOrder.Size = new System.Drawing.Size(212, 37);
             this.btnPayOrder.TabIndex = 21;
-            this.btnPayOrder.Text = "பணம் செலுத்து";
+            this.btnPayOrder.Text = "பணம் செலுத்து F5";
             this.btnPayOrder.UseVisualStyleBackColor = false;
             this.btnPayOrder.Click += new System.EventHandler(this.btnPayOrder_Click);
             // 
@@ -601,12 +686,37 @@
             // 
             this.btnCancelOrder.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnCancelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelOrder.Location = new System.Drawing.Point(304, 3);
+            this.btnCancelOrder.Location = new System.Drawing.Point(374, 3);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(145, 36);
             this.btnCancelOrder.TabIndex = 22;
-            this.btnCancelOrder.Text = "நிராகரி";
+            this.btnCancelOrder.Text = "நிராகரி F7";
             this.btnCancelOrder.UseVisualStyleBackColor = false;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
+            // 
+            // btnCurrentPrice
+            // 
+            this.btnCurrentPrice.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnCurrentPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCurrentPrice.Location = new System.Drawing.Point(704, 0);
+            this.btnCurrentPrice.Name = "btnCurrentPrice";
+            this.btnCurrentPrice.Size = new System.Drawing.Size(239, 36);
+            this.btnCurrentPrice.TabIndex = 24;
+            this.btnCurrentPrice.Text = "இன்றைய விலையில்";
+            this.btnCurrentPrice.UseVisualStyleBackColor = false;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStatus.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatus.ForeColor = System.Drawing.Color.Transparent;
+            this.txtStatus.Location = new System.Drawing.Point(1256, 31);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.ReadOnly = true;
+            this.txtStatus.Size = new System.Drawing.Size(125, 24);
+            this.txtStatus.TabIndex = 88;
             // 
             // FrmNewSalesOrder
             // 
@@ -618,10 +728,12 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "FrmNewSalesOrder";
             this.Text = "FrmSalesOrder";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmNewSalesOrder_FormClosing);
             this.Load += new System.EventHandler(this.FrmNewSalesOrder_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmNewSalesOrder_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbItem)).EndInit();
@@ -684,5 +796,12 @@
         private System.Windows.Forms.TextBox txtTaxPercentage;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnClearInvoice;
+        private System.Windows.Forms.TextBox lblInvoice;
+        private System.Windows.Forms.Label lblF4;
+        private System.Windows.Forms.Label lblF3;
+        private System.Windows.Forms.Label lblF2;
+        private System.Windows.Forms.Button btnCurrentPrice;
+        private System.Windows.Forms.TextBox txtStatus;
     }
 }

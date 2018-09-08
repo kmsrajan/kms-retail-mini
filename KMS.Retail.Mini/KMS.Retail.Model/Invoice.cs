@@ -22,9 +22,9 @@ namespace KMS.Retail.Model
         public string Discount { get; set; }
         public string NetTotal { get; set; }
         public string PaymentMode { get; set; }
-        public string PaymentStatus { get; set; }
+        public string BillingStatus { get; set; }
         public string InvoiceStatus { get; set; }
-        public string AmountReceived { get; set; }
+        public decimal AmountReceived { get; set; }
         public string BalanceAmount { get; set; }
         public string CreatedDate { get; set; }
         public string CustomerDetails { get; set; }

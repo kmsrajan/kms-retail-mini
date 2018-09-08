@@ -20,6 +20,7 @@ namespace KMS.Retail.Master
         List<SoldItem> soldItemColl = new List<SoldItem>();
         DataTable dtable = new DataTable();
         int itmId = 0;
+        Invoice CurrentInvc = new Invoice();
 
         private static FrmNewSalesOrder _frmInstance;
 
@@ -120,10 +121,12 @@ namespace KMS.Retail.Master
             lbItems.DataSource = itmModel.GetAllAvailableItems();
             lbItems.DisplayMember =Constants.CON_COL_ITEM_DISP_NAME;
             lbItems.ValueMember = Constants.CON_COL_ITEM_ID;
+            
 
             BindCatagory();
             SetGridViewStyle();
 
+            lblInvoice.Text = "New draft";
 
         }
         private void SetGridViewStyle()
@@ -172,10 +175,11 @@ namespace KMS.Retail.Master
         private void txtItemCode_KeyDown(object sender, KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            if (e.KeyCode == Keys.Down) {
+            if (e.KeyCode == Keys.Down)
+            {
                 lbItems.Focus();
             }
-            
+
         }
 
         private void txtItemCode_TextChanged(object sender, EventArgs e)
@@ -474,8 +478,8 @@ namespace KMS.Retail.Master
             {
                 if (!txtPrice.Text.Equals("KMS.Retail.Model.ItemPrice"))
                 {
-                    if (!string.IsNullOrEmpty(txtAmount.Text)){
-                        txtAmount.Text = Convert.ToString(decimal.Parse(txtQty.Text.Trim()) * decimal.Parse(txtPrice.Text));
+                    if (!string.IsNullOrEmpty(txtPrice.Text)){
+                        txtAmount.Text = Math.Round((decimal.Parse(txtQty.Text.Trim()) * decimal.Parse(txtPrice.Text)),2).ToString();
                     }
                 }
             }
@@ -585,6 +589,7 @@ namespace KMS.Retail.Master
 
         private void txtTaxbox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            GetNumber(sender, e, txtTaxPercentage.Text, 2);
             BillAmountCalculator();
         }
 
@@ -644,40 +649,241 @@ namespace KMS.Retail.Master
 
         private void btnSaveOrder_Click(object sender, EventArgs e)
         {
-            FrmSaveOrder.SaveSalesOrder(PrepareInvoice());
+            string res = string.Empty;
+            string invcId = string.Empty;
+
+            if (dgItems.Rows.Count > 0)
+            {
+                PrepareInvoice();
+                CurrentInvc = FrmSaveOrder.SaveSalesOrder(CurrentInvc);
+
+                if (CurrentInvc.BillingStatus == Constants.BillingStatus.SAVED.ToString())
+                {
+                    InvoiceDataModel invModel = new InvoiceDataModel();
+                    CurrentInvc.InvoiceStatus = Constants.InvoiceResponse.SAVED.ToString();
+                    CurrentInvc.PaymentMode = string.Empty;
+                    CurrentInvc.AmountReceived = 0;
+                    invcId=invModel.SaveInvoice(CurrentInvc);
+                    if (!string.IsNullOrEmpty(invcId))
+                    {
+                        CurrentInvc.ID = invcId;
+                    }
+                 
+                    lblInvoice.Text = CurrentInvc.ID;
+                    txtStatus.Text= CurrentInvc.InvoiceStatus.ToString();
+
+                    FrmMsg.MsgBox("விவரம்", "இந்த ரசீது விற்பனை பட்டியலில் சேமிக்கப்பட்டுவிட்டது");
+                }
+                if (CurrentInvc.BillingStatus == Constants.BillingStatus.CANCELLED.ToString())
+                {
+                    res = FrmMsg.MsgBox("விற்பனை நகல்", "இந்த ரசீது இதுவரை சேமிக்கப் படவில்லை");                
+                }
+                if(CurrentInvc.BillingStatus == Constants.BillingStatus.CHANGES_CANCELLED.ToString())
+            {
+                res = FrmMsg.MsgBox("விற்பனை நகல்", "இந்த ரசீதின் மாற்றங்கள் சேமிக்கப்படவில்லை");
+            }
+
+            }
+            else
+            {
+                FrmMsg.MsgBox("விவரம்", "பொருள் ஏதும் அட்டவணையில் இல்லை");
+            }
         }
-        private Invoice PrepareInvoice()
+        private void PrepareInvoice()
         {
             Invoice inv = new Invoice();
 
             DataTable itemsDt = (DataTable)(dgItems.DataSource);
 
-            //inv.ID=
-            //inv.InvoiceNo=
-            //inv.CustName=
-            //inv.CustAddress=
-            //inv.Mobile=
-            //inv.Photo=
-            inv.Items = itemsDt;
-            inv.TotalAmount = txtTotalAmount.Text;
-            inv.TaxType = string.Empty;
-            inv.TotalTax = txtTax.Text;
-            inv.Discount = txtDiscount.Text;
-            inv.NetTotal = txtNetTotal.Text;
-            inv.PaymentMode = string.Empty;
-            inv.PaymentStatus = string.Empty;
-            inv.InvoiceStatus = "draft";
-            inv.AmountReceived = string.Empty;
-            inv.CreatedDate = DateTime.Now.ToString();
-            return inv;
+            CurrentInvc.Items = itemsDt;
+            CurrentInvc.TotalAmount = txtTotalAmount.Text;
+            CurrentInvc.TaxType = string.Empty;
+            CurrentInvc.TotalTax = txtTax.Text;
+            CurrentInvc.Discount = txtDiscount.Text;
+            CurrentInvc.NetTotal = txtNetTotal.Text;
+            CurrentInvc.PaymentMode = string.Empty;
+            CurrentInvc.BillingStatus = string.Empty;
+            CurrentInvc.AmountReceived = 0;
+            CurrentInvc.CreatedDate = DateTime.Now.ToString();
+           
         }
         private void btnPayOrder_Click(object sender, EventArgs e)
         {
-           Invoice invc= FrmSaveOrder.MakePayment(PrepareInvoice());
-            if (!string.IsNullOrEmpty(invc.CustomerDetails))
+            if (dgItems.Rows.Count > 0)
             {
-                FrmBillOut.MakePayment(invc);
+                PrepareInvoice();
+                CurrentInvc = FrmSaveOrder.MakePayment(CurrentInvc);
+                if (!string.IsNullOrEmpty(CurrentInvc.CustomerDetails))
+                {
+                    string res= FrmBillOut.MakePayment(CurrentInvc);
+                    if (res == Constants.Response.SUCCESS.ToString())
+                    {
+                        FrmMsg.MsgBox("விவரம்", "இந்த ரசீது விற்பனை  பட்டியலில் சேமிக்கப் பட்டுவிட்டது");
+                        this.Close();
+                    }
+                }
             }
+            else
+            {
+                FrmMsg.MsgBox("விவரம்", "பொருள் ஏதும் அட்டவணையில் இல்லை");
+            }
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            if (dgItems.Rows.Count > 0)
+            {
+                string res=FrmMsg.ConfirmBox("விற்பனை நகல்", "நகலை நிராகரித்தால் இதனை மீண்டும் பெற இயலாது. சம்மதமா?");
+                //Invoice invc = PrepareInvoice();
+                //InvoiceDataModel invModel = new InvoiceDataModel();
+                //invc.InvoiceStatus = Constants.InvoiceResponse.CANCELLED.ToString();
+                //invModel.AddNewInvoice(invc);
+                if (res == Constants.Response.YES.ToString())
+                {
+                    FrmMsg.MsgBox("விற்பனை நகல்", "ரசீது நிராகரிக்கப் பட்டுவிட்டது.");
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnClearInvoice_Click(object sender, EventArgs e)
+        {
+            NewInvoice();
+        }
+        private void NewInvoice()
+        {
+            CurrentItem = new Item();
+            soldItem = new SoldItem();
+            soldItemColl = new List<SoldItem>();
+            dtable = new DataTable();
+            itmId = 0;
+            txtDiscount.Text = string.Empty;
+            txtNetTotal.Text = string.Empty;
+            txtTax.Text = string.Empty;
+            txtTotalAmount.Text = string.Empty;
+            txtTotalQty.Text = string.Empty;
+            lblInvoice.Text = "New draft";
+
+            soldItemColl.Clear();
+            soldItemColl = new List<SoldItem>();
+            dtable.Clear();
+            dgItems.DataSource = dtable;
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //// Verify that the pressed key isn't CTRL or any non-numeric digit
+            //if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            //{
+            //    e.Handled = true;
+            //}
+
+            //// If you want, you can allow decimal (float) numbers
+            //if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            //{
+            //    e.Handled = true;
+            //}
+            GetNumber(sender,e,txtQty.Text,2);
+        }
+        private void GetNumber(object sender, KeyPressEventArgs e,string val,int decimaldigit)
+        {
+            if (decimaldigit > 0)
+            {
+                // Verify that the pressed key isn't CTRL or any non-numeric digit
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+
+                // If you want, you can allow decimal (float) numbers
+                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                {
+                    e.Handled = true;
+                }
+                string[] parts = val.Split('.');
+
+                if (val.Split('.').Length > 1)
+                {
+                    if (val.Split('.')[1].Length > (decimaldigit - 1) || val.Split('.').Length > 2)
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+            else
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            GetNumber(sender, e,txtPrice.Text,2);
+        }
+
+        private void txtPrice_Leave(object sender, EventArgs e)
+        {
+            GetTotalAmount();
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+            GetTotalAmount();
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+            GetTotalAmount();
+        }
+
+        private void FrmNewSalesOrder_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode){
+                case Keys.F1:
+                    btnAddItem_Click(null, null);
+                    
+                    break;
+                case Keys.F2:
+                    txtItemCode.Focus();
+                    break;
+                case Keys.F3:
+                    cmbCategory.Focus();
+                    break;
+                case Keys.F4:
+                    txtQty.Focus();
+                    break;
+                //case Keys.F11:
+                //    btnCancelOrder_Click(null, null);
+                //    break;
+                //case Keys.F5:
+                //    btnAddNewStack_Click(null, null);
+                //    break;
+                //case Keys.F12:
+                //    btnClear_Click(null, null);
+                //    break;                  
+            }
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                btnClear_Click(null, null);
+            }
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                btnAddNewStack_Click(null, null);
+            }
+        }
+
+        private void txtTaxPercentage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            GetNumber(sender, e, txtDiscount.Text, 2);
         }
     }
 }

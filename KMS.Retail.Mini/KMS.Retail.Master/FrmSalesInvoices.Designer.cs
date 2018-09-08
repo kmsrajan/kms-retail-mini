@@ -34,12 +34,9 @@
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbShortName = new System.Windows.Forms.RadioButton();
             this.rbItemCode = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgInvoices = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -64,36 +61,37 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pnlStatus = new System.Windows.Forms.Panel();
             this.lblInvStatus = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtReceivedAmount = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtPaymentMode = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTotalTax = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCustName = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCustNo = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtMobile = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtInvcNo = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInvoices)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pnlStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -106,7 +104,7 @@
             this.panel3.Controls.Add(this.rbName);
             this.panel3.Controls.Add(this.rbShortName);
             this.panel3.Controls.Add(this.rbItemCode);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dgInvoices);
             this.panel3.Location = new System.Drawing.Point(348, 57);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1041, 627);
@@ -169,17 +167,22 @@
             this.rbItemCode.Text = "பணம் செலுத்தியது";
             this.rbItemCode.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgInvoices
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgInvoices.AllowUserToAddRows = false;
+            this.dgInvoices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1041, 586);
-            this.dataGridView1.TabIndex = 0;
+            this.dgInvoices.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgInvoices.Location = new System.Drawing.Point(0, 41);
+            this.dgInvoices.Name = "dgInvoices";
+            this.dgInvoices.ReadOnly = true;
+            this.dgInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgInvoices.Size = new System.Drawing.Size(1041, 586);
+            this.dgInvoices.TabIndex = 0;
+            this.dgInvoices.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgInvoices_CellMouseClick);
+            this.dgInvoices.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgInvoices_RowEnter);
             // 
             // label10
             // 
@@ -189,7 +192,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.Window;
-            this.label10.Location = new System.Drawing.Point(537, 16);
+            this.label10.Location = new System.Drawing.Point(89, 16);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(253, 25);
             this.label10.TabIndex = 23;
@@ -202,38 +205,10 @@
             this.panel1.BackColor = System.Drawing.Color.Teal;
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtFirstName);
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1386, 54);
+            this.panel1.Size = new System.Drawing.Size(1386, 55);
             this.panel1.TabIndex = 34;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(5, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(69, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(207, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 17);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Full Name";
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(284, 15);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(242, 26);
-            this.txtFirstName.TabIndex = 33;
             // 
             // panel4
             // 
@@ -490,31 +465,56 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Controls.Add(this.pnlStatus);
             this.panel5.Controls.Add(this.label17);
-            this.panel5.Controls.Add(this.textBox13);
+            this.panel5.Controls.Add(this.txtReceivedAmount);
             this.panel5.Controls.Add(this.label18);
-            this.panel5.Controls.Add(this.textBox14);
+            this.panel5.Controls.Add(this.txtPaymentMode);
             this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.textBox15);
+            this.panel5.Controls.Add(this.txtTotalAmount);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.textBox9);
+            this.panel5.Controls.Add(this.txtTotalTax);
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.textBox10);
+            this.panel5.Controls.Add(this.txtDiscount);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Controls.Add(this.textBox12);
+            this.panel5.Controls.Add(this.txtDate);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.textBox5);
+            this.panel5.Controls.Add(this.txtCustName);
             this.panel5.Controls.Add(this.label14);
-            this.panel5.Controls.Add(this.textBox6);
+            this.panel5.Controls.Add(this.txtCustNo);
             this.panel5.Controls.Add(this.label15);
-            this.panel5.Controls.Add(this.textBox7);
+            this.panel5.Controls.Add(this.txtMobile);
             this.panel5.Controls.Add(this.label16);
-            this.panel5.Controls.Add(this.textBox8);
+            this.panel5.Controls.Add(this.txtInvcNo);
             this.panel5.Location = new System.Drawing.Point(0, 311);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(347, 418);
             this.panel5.TabIndex = 38;
+            // 
+            // pnlStatus
+            // 
+            this.pnlStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlStatus.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlStatus.Controls.Add(this.lblInvStatus);
+            this.pnlStatus.Location = new System.Drawing.Point(0, 0);
+            this.pnlStatus.Name = "pnlStatus";
+            this.pnlStatus.Size = new System.Drawing.Size(347, 76);
+            this.pnlStatus.TabIndex = 80;
+            // 
+            // lblInvStatus
+            // 
+            this.lblInvStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInvStatus.AutoSize = true;
+            this.lblInvStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblInvStatus.Location = new System.Drawing.Point(83, 22);
+            this.lblInvStatus.Name = "lblInvStatus";
+            this.lblInvStatus.Size = new System.Drawing.Size(135, 25);
+            this.lblInvStatus.TabIndex = 81;
+            this.lblInvStatus.Text = "lblInvStatus";
             // 
             // label17
             // 
@@ -526,15 +526,15 @@
             this.label17.TabIndex = 78;
             this.label17.Text = "பெற்ற தொகை";
             // 
-            // textBox13
+            // txtReceivedAmount
             // 
-            this.textBox13.BackColor = System.Drawing.Color.Azure;
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(144, 370);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(195, 26);
-            this.textBox13.TabIndex = 79;
+            this.txtReceivedAmount.BackColor = System.Drawing.Color.Azure;
+            this.txtReceivedAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReceivedAmount.Location = new System.Drawing.Point(144, 370);
+            this.txtReceivedAmount.Name = "txtReceivedAmount";
+            this.txtReceivedAmount.ReadOnly = true;
+            this.txtReceivedAmount.Size = new System.Drawing.Size(195, 26);
+            this.txtReceivedAmount.TabIndex = 79;
             // 
             // label18
             // 
@@ -546,15 +546,15 @@
             this.label18.TabIndex = 76;
             this.label18.Text = "கட்டண முறை";
             // 
-            // textBox14
+            // txtPaymentMode
             // 
-            this.textBox14.BackColor = System.Drawing.Color.Azure;
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(144, 338);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(195, 26);
-            this.textBox14.TabIndex = 77;
+            this.txtPaymentMode.BackColor = System.Drawing.Color.Azure;
+            this.txtPaymentMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaymentMode.Location = new System.Drawing.Point(144, 338);
+            this.txtPaymentMode.Name = "txtPaymentMode";
+            this.txtPaymentMode.ReadOnly = true;
+            this.txtPaymentMode.Size = new System.Drawing.Size(195, 26);
+            this.txtPaymentMode.TabIndex = 77;
             // 
             // label19
             // 
@@ -566,15 +566,15 @@
             this.label19.TabIndex = 74;
             this.label19.Text = "மொத்த தொகை";
             // 
-            // textBox15
+            // txtTotalAmount
             // 
-            this.textBox15.BackColor = System.Drawing.Color.Azure;
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(145, 306);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(195, 26);
-            this.textBox15.TabIndex = 75;
+            this.txtTotalAmount.BackColor = System.Drawing.Color.Azure;
+            this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalAmount.Location = new System.Drawing.Point(145, 306);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.ReadOnly = true;
+            this.txtTotalAmount.Size = new System.Drawing.Size(195, 26);
+            this.txtTotalAmount.TabIndex = 75;
             // 
             // label7
             // 
@@ -586,15 +586,15 @@
             this.label7.TabIndex = 72;
             this.label7.Text = "மொத்த வரி";
             // 
-            // textBox9
+            // txtTotalTax
             // 
-            this.textBox9.BackColor = System.Drawing.Color.Azure;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(144, 242);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(195, 26);
-            this.textBox9.TabIndex = 73;
+            this.txtTotalTax.BackColor = System.Drawing.Color.Azure;
+            this.txtTotalTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalTax.Location = new System.Drawing.Point(144, 242);
+            this.txtTotalTax.Name = "txtTotalTax";
+            this.txtTotalTax.ReadOnly = true;
+            this.txtTotalTax.Size = new System.Drawing.Size(195, 26);
+            this.txtTotalTax.TabIndex = 73;
             // 
             // label8
             // 
@@ -606,15 +606,15 @@
             this.label8.TabIndex = 70;
             this.label8.Text = "தள்ளுபடி";
             // 
-            // textBox10
+            // txtDiscount
             // 
-            this.textBox10.BackColor = System.Drawing.Color.Azure;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(144, 274);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(195, 26);
-            this.textBox10.TabIndex = 71;
+            this.txtDiscount.BackColor = System.Drawing.Color.Azure;
+            this.txtDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscount.Location = new System.Drawing.Point(144, 274);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.ReadOnly = true;
+            this.txtDiscount.Size = new System.Drawing.Size(195, 26);
+            this.txtDiscount.TabIndex = 71;
             // 
             // label12
             // 
@@ -626,15 +626,15 @@
             this.label12.TabIndex = 66;
             this.label12.Text = "ரசீது தேதி";
             // 
-            // textBox12
+            // txtDate
             // 
-            this.textBox12.BackColor = System.Drawing.Color.Azure;
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(97, 210);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(242, 26);
-            this.textBox12.TabIndex = 67;
+            this.txtDate.BackColor = System.Drawing.Color.Azure;
+            this.txtDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Location = new System.Drawing.Point(97, 210);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.ReadOnly = true;
+            this.txtDate.Size = new System.Drawing.Size(242, 26);
+            this.txtDate.TabIndex = 67;
             // 
             // label4
             // 
@@ -646,15 +646,15 @@
             this.label4.TabIndex = 64;
             this.label4.Text = "பெயர்";
             // 
-            // textBox5
+            // txtCustName
             // 
-            this.textBox5.BackColor = System.Drawing.Color.Azure;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(97, 178);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(242, 26);
-            this.textBox5.TabIndex = 65;
+            this.txtCustName.BackColor = System.Drawing.Color.Azure;
+            this.txtCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustName.Location = new System.Drawing.Point(97, 178);
+            this.txtCustName.Name = "txtCustName";
+            this.txtCustName.ReadOnly = true;
+            this.txtCustName.Size = new System.Drawing.Size(242, 26);
+            this.txtCustName.TabIndex = 65;
             // 
             // label14
             // 
@@ -666,15 +666,15 @@
             this.label14.TabIndex = 62;
             this.label14.Text = "வாடி எண்";
             // 
-            // textBox6
+            // txtCustNo
             // 
-            this.textBox6.BackColor = System.Drawing.Color.Azure;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(97, 146);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(242, 26);
-            this.textBox6.TabIndex = 63;
+            this.txtCustNo.BackColor = System.Drawing.Color.Azure;
+            this.txtCustNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustNo.Location = new System.Drawing.Point(97, 146);
+            this.txtCustNo.Name = "txtCustNo";
+            this.txtCustNo.ReadOnly = true;
+            this.txtCustNo.Size = new System.Drawing.Size(242, 26);
+            this.txtCustNo.TabIndex = 63;
             // 
             // label15
             // 
@@ -686,15 +686,15 @@
             this.label15.TabIndex = 60;
             this.label15.Text = "கைபேசி";
             // 
-            // textBox7
+            // txtMobile
             // 
-            this.textBox7.BackColor = System.Drawing.Color.Azure;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(97, 114);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(242, 26);
-            this.textBox7.TabIndex = 61;
+            this.txtMobile.BackColor = System.Drawing.Color.Azure;
+            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Location = new System.Drawing.Point(97, 114);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.ReadOnly = true;
+            this.txtMobile.Size = new System.Drawing.Size(242, 26);
+            this.txtMobile.TabIndex = 61;
             // 
             // label16
             // 
@@ -706,36 +706,24 @@
             this.label16.TabIndex = 58;
             this.label16.Text = "ரசீது எண்";
             // 
-            // textBox8
+            // txtInvcNo
             // 
-            this.textBox8.BackColor = System.Drawing.Color.Azure;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(97, 82);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(242, 26);
-            this.textBox8.TabIndex = 59;
+            this.txtInvcNo.BackColor = System.Drawing.Color.Azure;
+            this.txtInvcNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInvcNo.Location = new System.Drawing.Point(97, 82);
+            this.txtInvcNo.Name = "txtInvcNo";
+            this.txtInvcNo.ReadOnly = true;
+            this.txtInvcNo.Size = new System.Drawing.Size(242, 26);
+            this.txtInvcNo.TabIndex = 59;
             // 
-            // panel6
+            // pictureBox1
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.lblInvStatus);
-            this.panel6.Location = new System.Drawing.Point(8, 6);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(331, 70);
-            this.panel6.TabIndex = 80;
-            // 
-            // lblInvStatus
-            // 
-            this.lblInvStatus.AutoSize = true;
-            this.lblInvStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvStatus.Location = new System.Drawing.Point(16, 23);
-            this.lblInvStatus.Name = "lblInvStatus";
-            this.lblInvStatus.Size = new System.Drawing.Size(80, 17);
-            this.lblInvStatus.TabIndex = 81;
-            this.lblInvStatus.Text = "lblInvStatus";
+            this.pictureBox1.Image = global::KMS.Retail.Master.Properties.Resources.SalesOrders;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmSalesInvoices
             // 
@@ -750,19 +738,21 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmSalesInvoices";
             this.Text = "FrmSearchOrders";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSalesInvoices_FormClosing);
+            this.Load += new System.EventHandler(this.FrmSalesInvoices_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgInvoices)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.pnlStatus.ResumeLayout(false);
+            this.pnlStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -792,7 +782,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgInvoices;
         private System.Windows.Forms.RadioButton rbAll;
         private System.Windows.Forms.RadioButton rbDispName;
         private System.Windows.Forms.RadioButton rbName;
@@ -800,32 +790,30 @@
         private System.Windows.Forms.RadioButton rbItemCode;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtTotalTax;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCustName;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtCustNo;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtInvcNo;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtReceivedAmount;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtPaymentMode;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtTotalAmount;
+        private System.Windows.Forms.Panel pnlStatus;
         private System.Windows.Forms.Label lblInvStatus;
     }
 }

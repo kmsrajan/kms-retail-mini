@@ -45,30 +45,33 @@
             this.rbName = new System.Windows.Forms.RadioButton();
             this.rbShortName = new System.Windows.Forms.RadioButton();
             this.rbItemCode = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHeader.BackColor = System.Drawing.Color.Sienna;
+            this.pnlHeader.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Controls.Add(this.lblFrmTitle);
             this.pnlHeader.Location = new System.Drawing.Point(1, 1);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1082, 47);
+            this.pnlHeader.Size = new System.Drawing.Size(1082, 55);
             this.pnlHeader.TabIndex = 0;
             // 
             // lblFrmTitle
             // 
-            this.lblFrmTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFrmTitle.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblFrmTitle.AutoSize = true;
             this.lblFrmTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFrmTitle.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblFrmTitle.Location = new System.Drawing.Point(418, 11);
+            this.lblFrmTitle.Location = new System.Drawing.Point(94, 12);
             this.lblFrmTitle.Name = "lblFrmTitle";
             this.lblFrmTitle.Size = new System.Drawing.Size(268, 25);
             this.lblFrmTitle.TabIndex = 40;
@@ -89,7 +92,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Sienna;
+            this.btnDelete.BackColor = System.Drawing.Color.MediumBlue;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.SystemColors.Window;
             this.btnDelete.Location = new System.Drawing.Point(735, 5);
@@ -102,7 +105,7 @@
             // 
             // btnView
             // 
-            this.btnView.BackColor = System.Drawing.Color.Sienna;
+            this.btnView.BackColor = System.Drawing.Color.MediumBlue;
             this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnView.ForeColor = System.Drawing.SystemColors.Window;
             this.btnView.Location = new System.Drawing.Point(530, 5);
@@ -115,7 +118,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Sienna;
+            this.btnUpdate.BackColor = System.Drawing.Color.MediumBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
             this.btnUpdate.Location = new System.Drawing.Point(328, 5);
@@ -128,7 +131,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.BackColor = System.Drawing.Color.Sienna;
+            this.btnNew.BackColor = System.Drawing.Color.MediumBlue;
             this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNew.Location = new System.Drawing.Point(109, 5);
@@ -152,9 +155,9 @@
             this.panel3.Controls.Add(this.rbName);
             this.panel3.Controls.Add(this.rbShortName);
             this.panel3.Controls.Add(this.rbItemCode);
-            this.panel3.Location = new System.Drawing.Point(1, 49);
+            this.panel3.Location = new System.Drawing.Point(1, 62);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1082, 568);
+            this.panel3.Size = new System.Drawing.Size(1082, 555);
             this.panel3.TabIndex = 1;
             // 
             // btnSearch
@@ -185,7 +188,7 @@
             this.dgItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgItems.BackgroundColor = System.Drawing.Color.PeachPuff;
+            this.dgItems.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.dgItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgItems.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgItems.Location = new System.Drawing.Point(3, 45);
@@ -203,7 +206,7 @@
             this.dgItems.RowTemplate.Height = 25;
             this.dgItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgItems.ShowEditingIcon = false;
-            this.dgItems.Size = new System.Drawing.Size(1076, 518);
+            this.dgItems.Size = new System.Drawing.Size(1076, 505);
             this.dgItems.TabIndex = 7;
             this.dgItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgItems_CellClick);
             this.dgItems.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgItems_ColumnHeaderMouseClick);
@@ -271,12 +274,21 @@
             this.rbItemCode.Text = "பொருள் எண் ";
             this.rbItemCode.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::KMS.Retail.Master.Properties.Resources.items;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 46);
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmItemsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Linen;
+            this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1084, 661);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -295,6 +307,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -317,5 +330,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtItemSrch;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

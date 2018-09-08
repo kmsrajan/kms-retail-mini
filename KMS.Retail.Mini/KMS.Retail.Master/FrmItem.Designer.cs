@@ -101,8 +101,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(57)))));
-            btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnDelete.BackColor = System.Drawing.Color.PaleVioletRed;
+            btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             btnDelete.Location = new System.Drawing.Point(296, 8);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new System.Drawing.Size(122, 34);
@@ -113,7 +114,9 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
             this.panel1.Controls.Add(this.label15);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(604, 53);
@@ -122,10 +125,10 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(179, 11);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(219, 25);
+            this.label15.Size = new System.Drawing.Size(234, 25);
             this.label15.TabIndex = 39;
             this.label15.Text = "பொருள் விவரங்கள்";
             // 
@@ -280,8 +283,9 @@
             // 
             // btnPicture
             // 
-            this.btnPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(57)))));
-            this.btnPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPicture.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPicture.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnPicture.Location = new System.Drawing.Point(415, 348);
             this.btnPicture.Name = "btnPicture";
             this.btnPicture.Size = new System.Drawing.Size(178, 34);
@@ -585,8 +589,9 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(57)))));
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEdit.Location = new System.Drawing.Point(10, 8);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(132, 34);
@@ -597,8 +602,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(57)))));
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancel.Location = new System.Drawing.Point(435, 8);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(131, 34);
@@ -609,8 +615,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(57)))));
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSave.Location = new System.Drawing.Point(158, 8);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(122, 34);
@@ -627,7 +634,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(235)))), ((int)(((byte)(204)))));
+            this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(607, 614);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

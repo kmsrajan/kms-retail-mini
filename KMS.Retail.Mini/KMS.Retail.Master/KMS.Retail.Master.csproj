@@ -198,6 +198,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\items2.jpg" />
     <None Include="Resources\items1.jpg" />
     <None Include="Resources\items.jpg" />
     <None Include="Icons\AddNewItem.PNG" />

@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblInvNo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbPaymentMode = new System.Windows.Forms.ComboBox();
             this.cbPaid = new System.Windows.Forms.CheckBox();
             this.txtBalAmount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAmountReceived = new System.Windows.Forms.TextBox();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbPaymentMode = new System.Windows.Forms.ComboBox();
-            this.lblInvNo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(452, 62);
             this.panel1.TabIndex = 0;
+            // 
+            // lblInvNo
+            // 
+            this.lblInvNo.AutoSize = true;
+            this.lblInvNo.BackColor = System.Drawing.Color.SteelBlue;
+            this.lblInvNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblInvNo.Location = new System.Drawing.Point(231, 18);
+            this.lblInvNo.Name = "lblInvNo";
+            this.lblInvNo.Size = new System.Drawing.Size(0, 25);
+            this.lblInvNo.TabIndex = 16;
             // 
             // label2
             // 
@@ -77,7 +88,7 @@
             this.panel3.Controls.Add(this.txtAmountReceived);
             this.panel3.Controls.Add(this.btnComplete);
             this.panel3.Controls.Add(this.btnPrint);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.txtTotalAmount);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label5);
@@ -85,6 +96,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(452, 279);
             this.panel3.TabIndex = 2;
+            // 
+            // cmbPaymentMode
+            // 
+            this.cmbPaymentMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPaymentMode.FormattingEnabled = true;
+            this.cmbPaymentMode.Items.AddRange(new object[] {
+            "Cash",
+            "Card",
+            "Paytm"});
+            this.cmbPaymentMode.Location = new System.Drawing.Point(209, 42);
+            this.cmbPaymentMode.Name = "cmbPaymentMode";
+            this.cmbPaymentMode.Size = new System.Drawing.Size(228, 28);
+            this.cmbPaymentMode.TabIndex = 21;
             // 
             // cbPaid
             // 
@@ -126,6 +150,7 @@
             this.txtAmountReceived.Size = new System.Drawing.Size(228, 29);
             this.txtAmountReceived.TabIndex = 17;
             this.txtAmountReceived.TextChanged += new System.EventHandler(this.txtAmountReceived_TextChanged);
+            this.txtAmountReceived.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmountReceived_KeyPress);
             // 
             // btnComplete
             // 
@@ -153,14 +178,14 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // textBox2
+            // txtTotalAmount
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(209, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(228, 29);
-            this.textBox2.TabIndex = 10;
+            this.txtTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalAmount.Location = new System.Drawing.Point(209, 8);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.ReadOnly = true;
+            this.txtTotalAmount.Size = new System.Drawing.Size(228, 29);
+            this.txtTotalAmount.TabIndex = 10;
             // 
             // label3
             // 
@@ -194,30 +219,6 @@
             this.label5.Size = new System.Drawing.Size(144, 24);
             this.label5.TabIndex = 11;
             this.label5.Text = "கட்டண முறை";
-            // 
-            // cmbPaymentMode
-            // 
-            this.cmbPaymentMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPaymentMode.FormattingEnabled = true;
-            this.cmbPaymentMode.Items.AddRange(new object[] {
-            "Cash",
-            "Card",
-            "Paytm"});
-            this.cmbPaymentMode.Location = new System.Drawing.Point(209, 42);
-            this.cmbPaymentMode.Name = "cmbPaymentMode";
-            this.cmbPaymentMode.Size = new System.Drawing.Size(228, 28);
-            this.cmbPaymentMode.TabIndex = 21;
-            // 
-            // lblInvNo
-            // 
-            this.lblInvNo.AutoSize = true;
-            this.lblInvNo.BackColor = System.Drawing.Color.SteelBlue;
-            this.lblInvNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblInvNo.Location = new System.Drawing.Point(231, 18);
-            this.lblInvNo.Name = "lblInvNo";
-            this.lblInvNo.Size = new System.Drawing.Size(0, 25);
-            this.lblInvNo.TabIndex = 16;
             // 
             // FrmBillOut
             // 
@@ -253,7 +254,7 @@
         private System.Windows.Forms.TextBox txtAmountReceived;
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

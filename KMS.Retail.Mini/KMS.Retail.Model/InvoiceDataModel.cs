@@ -25,19 +25,23 @@ namespace KMS.Retail.Model
             _connectionString = Constants.DB_CONN_STRING;
         }
 
-        public void SaveInvoice(Invoice invc)
+        public string SaveInvoice(Invoice invc)
         {
+            string res = string.Empty;
             if (string.IsNullOrEmpty(invc.ID))
             {
-                AddNewInvoice(invc);
+                res=AddNewInvoice(invc);
             }
             else
             {
                 UpdateInvoice(invc);
+                res = string.Empty;
             }
+            return res;
         }
-        public void AddNewInvoice(Invoice invc)
+        public string AddNewInvoice(Invoice invc)
         {
+            string res = string.Empty;
             try
             {
                 using (var conn = new MySqlConnection(_connectionString))
@@ -61,9 +65,9 @@ namespace KMS.Retail.Model
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_DISCOUNT, invc.Discount);
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_NET_TOTAL, invc.NetTotal);
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_PAYMENET_MODE, invc.PaymentMode);
-                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_AMT_RECEIVED, invc.AmountReceived);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_AMT_RECEIVED, invc.AmountReceived.ToString());
                         cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_DATE, DateTime.Now);
-                        cmd.ExecuteNonQuery();
+                        res = cmd.ExecuteScalar().ToString();
                     }
 
                 }
@@ -71,47 +75,48 @@ namespace KMS.Retail.Model
             }
             catch (MySqlException ex)
             {
-                throw ex;
+                //throw ex;
+                
             }
+            return res;
         }
-        public void UpdateInvoice(Invoice item)
+        public void UpdateInvoice(Invoice invc)
         {
+            //string res = string.Empty;
             try
             {
                 using (var conn = new MySqlConnection(_connectionString))
                 {
                     using (var cmd = conn.CreateCommand())
                     {
-                        //conn.Open();
-                        //cmd.CommandType = CommandType.StoredProcedure;
-                        //cmd.CommandText = Constants.CON_SP_UPDATE_ITEM;
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_ID, item.ID);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_NAME, item.Name);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_CODE, item.Code);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_DISP_NAME, item.DisplayName);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_CATEGORY_ID, item.Category);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_STATUS_ID, item.Status);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_SHORT_NAME, item.ShortName);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_PUR_PRICE, item.PurchasePrice);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_QTY, item.Qty);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_SELLING_PRICE, item.SellingPrice);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_MRP, item.MRP);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_WS_PRICE, item.WSPrice);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_SPL_PRICE, item.SplPrice);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_PICTURE, item.Picture);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_GST, item.GST);
-                        //cmd.Parameters.AddWithValue(Constants.CON_PARAM_ITEM_TAX, item.Tax);
-
-                        //cmd.ExecuteNonQuery();
-
-                    }
+                        conn.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = Constants.CON_SP_UPDATE_INVOICE;
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_ID, invc.ID);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_NO, invc.InvoiceNo);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_CUST_NAME, invc.CustName);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_CUST_MOBILE, invc.Mobile);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_CUST_ADS, invc.CustAddress);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_CUST_PHOTO, invc.Photo);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_STATUS, invc.InvoiceStatus);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_ITEMS, JsonConvert.SerializeObject(invc.Items));
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_TOTAL_AMT, invc.TotalAmount);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_TAX_TYPE, invc.TaxType);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_TOTAL_TAX, invc.TotalTax);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_DISCOUNT, invc.Discount);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_NET_TOTAL, invc.NetTotal);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_PAYMENET_MODE, invc.PaymentMode);
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_AMT_RECEIVED, invc.AmountReceived.ToString());
+                        cmd.Parameters.AddWithValue(Constants.CON_PARAM_INVOICE_DATE, DateTime.Now);
+                        cmd.ExecuteNonQuery();                    }
 
                 }
 
             }
             catch (MySqlException ex)
             {
-                throw ex;
+                //throw ex;
+
             }
         }
         public void DeleteInvoice(string itemID)
@@ -143,7 +148,7 @@ namespace KMS.Retail.Model
         public DataTable GetAllInvoices()
         {
             MySqlDataAdapter adptr = new MySqlDataAdapter();
-            DataTable dt = new DataTable(Constants.CON_DT_ITEMS);
+            DataTable dt = new DataTable(Constants.CON_DT_INVOICES);
             try
             {
 
@@ -153,7 +158,7 @@ namespace KMS.Retail.Model
                     {
                         conn.Open();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = Constants.CON_SP_GET_ALL_ITEMS;
+                        cmd.CommandText = Constants.CON_SP_GET_ALL_INVOICES;
                         adptr = new MySqlDataAdapter(cmd);
                         adptr.Fill(dt);
                     }

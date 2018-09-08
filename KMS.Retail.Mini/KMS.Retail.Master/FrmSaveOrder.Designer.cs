@@ -38,7 +38,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
@@ -82,14 +84,17 @@
             // 
             this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobile.Location = new System.Drawing.Point(189, 52);
+            this.txtMobile.MaxLength = 12;
             this.txtMobile.Name = "txtMobile";
             this.txtMobile.Size = new System.Drawing.Size(269, 29);
             this.txtMobile.TabIndex = 3;
+            this.txtMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMobile_KeyPress);
             // 
             // txtCustName
             // 
             this.txtCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustName.Location = new System.Drawing.Point(189, 87);
+            this.txtCustName.MaxLength = 50;
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.Size = new System.Drawing.Size(269, 29);
             this.txtCustName.TabIndex = 6;
@@ -109,6 +114,7 @@
             // 
             this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(189, 122);
+            this.txtAddress.MaxLength = 500;
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(269, 68);
@@ -136,10 +142,22 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(-2, -2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(605, 48);
             this.panel1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(14, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(191, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "வாடிக்கையாளர் விவரம் ";
             // 
             // FrmSaveOrder
             // 
@@ -165,6 +183,8 @@
             this.Text = "சேமி";
             this.Load += new System.EventHandler(this.FrmSaveOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +202,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -27,6 +27,20 @@ namespace KMS.Retail.Common
         {
             OK, YES, NO, CANCEL, CLOSE,SUCCESS,FAIL
         }
+
+        public enum InvoiceResponse
+        {
+            SAVED, CANCELLED,PAID
+        }
+        public enum BillingStatus
+        {
+            SAVED, CANCELLED, PAID,CHANGES_CANCELLED
+
+        }
+        public enum InvoiceStatus
+        {
+            SAVED, CANCELLED, PAID
+        }
         #endregion ResponseMessage
 
         #region datatypes
@@ -108,6 +122,7 @@ namespace KMS.Retail.Common
         public static string CON_PARAM_ITEM_COMMON = "@pCommon";
         //data table
         public static string CON_DT_ITEMS = "tblItems";
+        public static string CON_DT_INVOICES = "tblInvoices";
 
         //data table columns
         public static string CON_COL_ITEM_ID = "ID";
@@ -127,6 +142,24 @@ namespace KMS.Retail.Common
         public static string CON_COL_ITEM_GST = "GST";
         public static string CON_COL_ITEM_TAX = "Tax";
         public static string CON_COL_ITEM_CREATED_DATE = "CreatedDate";
+
+        // Invoice data table columns
+        public static string CON_COL_INVC_ID = "ID";
+        public static string CON_COL_INVC_NO = "InvoiceNo";
+        public static string CON_COL_INVC_CUST_NAME  = "CustName";
+        public static string CON_COL_INVC_CUST_ADS = "CustAddress";
+        public static string CON_COL_INVC_MOBILE = "Mobile";
+        public static string CON_COL_INVC_CUST_PHOTO = "Photo";
+        public static string CON_COL_INVC_STAUTS = "Status";
+        public static string CON_COL_INVC_ITEMS = "Items";
+        public static string CON_COL_INVC_TOTAL_AMT = "TotalAmount";
+        public static string CON_COL_INVC_TAX_TYPE = "TaxType";
+        public static string CON_COL_INVC_TOTAL_TAX = "TotalTax";
+        public static string CON_COL_INVC_DISCOUNT = "Discount";
+        public static string CON_COL_INVC_NET_TOTAL = "NetTotal";
+        public static string CON_COL_INVC_PAY_MODE = "PaymentMode";
+        public static string CON_COL_INVC_AMT_RECEIVED = "AmountReceived";
+        public static string CON_COL_INVC_DATE = "CreatedDate";
 
         //catagory table
         public static string CON_FLD_CATAGORY_ID = "CID";

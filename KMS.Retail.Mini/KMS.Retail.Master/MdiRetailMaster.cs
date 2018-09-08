@@ -127,11 +127,11 @@ namespace KMS.Retail.Master
             activateForm.Show();
             activateForm.Activate();
         }
+       
 
         private void tslItems_Click(object sender, EventArgs e)
         {
-            FrmItemsView activateForm = FrmItemsView.FrmInstance;
-            ActivateChildForm(activateForm, FormWindowState.Maximized);
+           
         }
 
         private void tsbNewOrder_Click(object sender, EventArgs e)
@@ -142,8 +142,8 @@ namespace KMS.Retail.Master
 
         private void tslSO_Click(object sender, EventArgs e)
         {
-            FrmSalesInvoices activateForm = FrmSalesInvoices.FrmInstance;
-            ActivateChildForm(activateForm, FormWindowState.Maximized);
+            
+            
 
         }
 
@@ -151,6 +151,20 @@ namespace KMS.Retail.Master
         {
             //Open sales order window 
             FrmNewSalesOrder activateForm = FrmNewSalesOrder.FrmInstance;
+
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
+        }
+
+        private void tsbItems_Click(object sender, EventArgs e)
+        {
+            FrmItemsView activateForm = FrmItemsView.FrmInstance;
+            ActivateChildForm(activateForm, FormWindowState.Maximized);
+        }
+
+        private void tbsInvoices_Click(object sender, EventArgs e)
+        {
+            FrmSalesInvoices._frmInstance = null;
+            FrmSalesInvoices activateForm = FrmSalesInvoices.FrmInstance;
             ActivateChildForm(activateForm, FormWindowState.Maximized);
         }
     }
